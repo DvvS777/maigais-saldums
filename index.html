@@ -1,13 +1,40 @@
 <!DOCTYPE html>
 <html lang="lv">
 <head>
-    <meta charset="UTF-8">
-    <title>Maigais Saldums</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <script src="js/scripts.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maigais Saldums</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- JavaScript -->
+  <script src="js/scripts.js" defer></script>
 </head>
 <body>
-    <h1>Sveicināti Maigajā Saldumā!</h1>
-    <div id="product-list"></div>
+  <header>
+    <h1>Maigais Saldums</h1>
+    <p>Svaigas tortes un riekstiņu cepumi</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Produkti</h2>
+      <div id="product-list" class="product-container">
+        <!-- Produkti no JSON tiks ievietoti šeit -->
+      </div>
+    </section>
+
+    <section>
+      <h2>Atsauksmes</h2>
+      <div id="testimonial-list" class="testimonial-container">
+        <!-- Atsauksmes no JSON tiks ievietotas šeit -->
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Maigais Saldums. Visas tiesības aizsargātas.</p>
+  </footer>
 </body>
 </html>
