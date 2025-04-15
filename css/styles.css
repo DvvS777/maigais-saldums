@@ -1,1 +1,69 @@
-body { background: #fdf6f0; }
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fef6ef;
+    color: #2c2c2c;
+    margin: 0;
+    padding: 20px;
+}
+
+h1, h2 {
+    color: #3a2f2f;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-top: 40px;
+}
+
+.product {
+    margin-bottom: 40px;
+}
+
+.product img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product h3 {
+    margin-top: 10px;
+    font-size: 1.3em;
+    color: #4a3c3c;
+}
+
+.product p {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.testimonial {
+    margin-bottom: 30px;
+    padding: 15px;
+    background-color: #fff9f4;
+    border-left: 4px solid #ffcc99;
+    border-radius: 5px;
+}
+
+.testimonial p {
+    margin: 5px 0;
+    font-size: 0.95em;
+}
+
+.testimonial .author {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.footer {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 0.9em;
+    color: #999;
+}
