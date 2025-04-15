@@ -1,30 +1,26 @@
 [
-    {
-        "id": "cake01",
-        "name": "Šokolādes torte",
-        "image": "images/cakes/sokolades_torte_1.jpg",
-        "description": "Bagātīga un izteiksmīga šokolādes torte, kas izkausē sirdi.",
-        "category": "torte"
-    },
-    {
-        "id": "cake02",
-        "name": "Napoleons",
-        "image": "images/cakes/napoleons_torte_1.jpg",
-        "description": "Klasisks Napoleons ar kraukšķīgiem kārtainās mīklas slāņiem.",
-        "category": "torte"
-    },
-    {
-        "id": "cake03",
-        "name": "Piena maigums",
-        "image": "images/cakes/piena_torte_1.jpg",
-        "description": "Viegls kā sapnis – maigs piena krēms un samtaina tekstūra.",
-        "category": "torte"
-    },
-    {
-        "id": "cookie01",
-        "name": "Krāsainie riekstiņi",
-        "image": "images/cookies/riekstini_krasaini_1.jpg",
-        "description": "Vesels prieka graudiņš – mazi riekstiņi ar krāsainiem pārsteigumiem.",
-        "category": "cepumi"
-    }
+  {
+    "id": 1,
+    "title": "Šokolādes torte",
+    "description": "Bagātīga šokolādes kūka ar šokolādes krēmu un glazūru.",
+    "image": "images/cakes/sokolades_torte_1.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Napoleona torte",
+    "description": "Klasiskā Napoleona kūka ar kraukšķīgiem slāņiem un vaniļas krēmu.",
+    "image": "images/cakes/napoleons_torte_1.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Piena maigums",
+    "description": "Balta un viegla kūka ar ziedu rotājumiem – ideāli svētkiem.",
+    "image": "images/cakes/piena_torte_1.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Krāsainie riekstiņi",
+    "description": "Krāsaini cepumi ar dažādu garšu pildījumiem – īsts prieks bērniem un pieaugušajiem.",
+    "image": "images/cookies/riekstini_krasaini_1.jpg"
+  }
 ]
