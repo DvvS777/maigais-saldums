@@ -1,25 +1,21 @@
 [
   {
-    "id": 1,
-    "title": "Šokolādes torte",
+    "name": "Šokolādes torte",
     "description": "Bagātīga šokolādes kūka ar šokolādes krēmu un glazūru.",
     "image": "images/cakes/sokolades_torte_1.jpg"
   },
   {
-    "id": 2,
-    "title": "Napoleona torte",
+    "name": "Napoleona torte",
     "description": "Klasiskā Napoleona kūka ar kraukšķīgiem slāņiem un vaniļas krēmu.",
     "image": "images/cakes/napoleons_torte_1.jpg"
   },
   {
-    "id": 3,
-    "title": "Piena maigums",
+    "name": "Piena torte",
     "description": "Balta un viegla kūka ar ziedu rotājumiem – ideāli svētkiem.",
     "image": "images/cakes/piena_torte_1.jpg"
   },
   {
-    "id": 4,
-    "title": "Krāsainie riekstiņi",
+    "name": "Krāsainie riekstiņi",
     "description": "Krāsaini cepumi ar dažādu garšu pildījumiem – īsts prieks bērniem un pieaugušajiem.",
     "image": "images/cookies/riekstini_krasaini_1.jpg"
   }
