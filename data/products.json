@@ -1,0 +1,12 @@
+[
+  {
+    "id": "product1",
+    "name": "Šokolādes sapņa torte",
+    "price": "€28.00"
+  },
+  {
+    "id": "product2",
+    "name": "Zemeņu valdzinājums",
+    "price": "€32.00"
+  }
+]
