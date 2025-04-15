@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Anna",
+    "comment": "Šokolādes torte bija pasakaini garda! Viesi bija sajūsmā.",
+    "rating": 5
+  },
+  {
+    "name": "Jānis",
+    "comment": "Napaleons bija īsts meistardarbs – kraukšķīgs un maigs vienlaikus!",
+    "rating": 5
+  },
+  {
+    "name": "Elīna",
+    "comment": "Pasūtījums tika piegādāts laikā un cepumi bija tik gardi, ka pazuda pāris minūtēs!",
+    "rating": 4
+  },
+  {
+    "name": "Mārtiņš",
+    "comment": "Piena torte bija eleganta un ar izsmalcinātu garšu. Ļoti iesaku!",
+    "rating": 5
+  }
+]
