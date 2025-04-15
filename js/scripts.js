@@ -1,0 +1,1 @@
+// JavaScript tiks pievienots vēlāk
