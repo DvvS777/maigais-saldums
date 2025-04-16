@@ -1,69 +1,138 @@
+/* Pamatstili */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #fef6ef;
-    color: #2c2c2c;
-    margin: 0;
-    padding: 20px;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fff8f0;
+  color: #3e2723;
 }
 
 h1, h2 {
-    color: #3a2f2f;
+  text-align: center;
+  color: #8B4513;
 }
 
-h1 {
-    font-size: 2em;
-    margin-bottom: 10px;
+header {
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-h2 {
-    font-size: 1.5em;
-    margin-top: 40px;
+nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0 0;
 }
 
-.product {
-    margin-bottom: 40px;
+nav a {
+  text-decoration: none;
+  color: #8B4513;
+  font-weight: bold;
 }
 
-.product img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+nav a:hover {
+  color: #F5B7B1;
 }
 
-.product h3 {
-    margin-top: 10px;
-    font-size: 1.3em;
-    color: #4a3c3c;
+/* Produktu kartītes */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  padding: 40px;
 }
 
-.product p {
-    font-size: 1em;
-    color: #555;
-    margin-bottom: 20px;
+.card {
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card .info {
+  padding: 20px;
+}
+
+.card .info h3 {
+  margin-top: 0;
+}
+
+.card .info p {
+  color: #555;
+}
+
+.card .info .price {
+  color: #8B4513;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* Forma */
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+form input, form textarea {
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+form button {
+  background-color: #8B4513;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+form button:hover {
+  background-color: #6d3710;
+}
+
+/* Atsauksmes */
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  padding: 40px;
 }
 
 .testimonial {
-    margin-bottom: 30px;
-    padding: 15px;
-    background-color: #fff9f4;
-    border-left: 4px solid #ffcc99;
-    border-radius: 5px;
+  background-color: white;
+  border-left: 5px solid #F5B7B1;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  border-radius: 6px;
 }
 
-.testimonial p {
-    margin: 5px 0;
-    font-size: 0.95em;
-}
-
-.testimonial .author {
-    font-weight: bold;
-    margin-top: 10px;
-}
-
-.footer {
-    margin-top: 50px;
-    text-align: center;
-    font-size: 0.9em;
-    color: #999;
+footer {
+  text-align: center;
+  background-color: #f8e2cf;
+  padding: 30px;
+  margin-top: 40px;
 }
