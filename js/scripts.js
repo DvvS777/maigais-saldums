@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(response => response.json())
         .then(data => {
             const productList = document.getElementById('product-list');
-            data.products.forEach(product => {
+            data.forEach(product => {
                 const productCard = `
                 <div class="product-card tab-content active" data-category="${product.category}">
                     <div class="product-image-wrapper">
