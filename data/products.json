@@ -1,22 +1,34 @@
 [
   {
-    "name": "Šokolādes torte",
-    "description": "Bagātīga šokolādes kūka ar šokolādes krēmu un glazūru.",
-    "image": "images/cakes/sokolades_torte_1.jpg"
+    "id": "product1",
+    "name": "Šokolādes sapņa torte",
+    "category": "cakes",
+    "image": "images/cakes/chocolate_cake.png",
+    "price": "€28.00",
+    "description": "Apburošs šokolādes mākslas darbs ar maigiem kakao slāņiem un samtainu krēmu. Katra šī tortes malkšķis ir kā ceļojums dziļās šokolādes simfonijā."
   },
   {
+    "id": "product2",
     "name": "Napoleona torte",
-    "description": "Klasiskā Napoleona kūka ar kraukšķīgiem slāņiem un vaniļas krēmu.",
-    "image": "images/cakes/napoleons_torte_1.jpg"
+    "category": "cakes",
+    "image": "images/cakes/napoleon_cake.png",
+    "price": "€30.00",
+    "description": "Klasiska Napoleona torte ar daudziem kraukšķīgiem kārtainās mīklas slāņiem un vieglu krēma pildījumu, kas kūst mutē."
   },
   {
-    "name": "Piena torte",
-    "description": "Balta un viegla kūka ar ziedu rotājumiem – ideāli svētkiem.",
-    "image": "images/cakes/piena_torte_1.jpg"
+    "id": "product3",
+    "name": "Piena maiguma torte",
+    "category": "cakes",
+    "image": "images/cakes/milk_smoothness_cake.png",
+    "price": "€29.00",
+    "description": "Īpaši maiga un krēmīga torte ar piena un vaniļas nokrāsām. Ideāli piemērota tiem, kas mīl samtainu saldumu."
   },
   {
-    "name": "Krāsainie riekstiņi",
-    "description": "Krāsaini cepumi ar dažādu garšu pildījumiem – īsts prieks bērniem un pieaugušajiem.",
-    "image": "images/cookies/riekstini_krasaini_1.jpg"
+    "id": "product4",
+    "name": "Krāsainie riekstiņu cepumi",
+    "category": "cookies",
+    "image": "images/cookies/colorful_nut_cookies.png",
+    "price": "€12.00 / 10 gab",
+    "description": "Tradicionāli riekstiņu cepumi ar krāsainu dekoru. Trausli, ar riekstu pildījumu, kas pārsteigs gan garšas, gan izskata ziņā."
   }
 ]
