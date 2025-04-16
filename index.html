@@ -1,40 +1,55 @@
 <!DOCTYPE html>
 <html lang="lv">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Maigais Saldums</title>
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="css/styles.css">
-
-  <!-- JavaScript -->
-  <script src="js/scripts.js" defer></script>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <script defer src="js/scripts.js"></script>
 </head>
 <body>
+  <!-- Navigācija -->
   <header>
     <h1>Maigais Saldums</h1>
-    <p>Svaigas tortes un riekstiņu cepumi</p>
+    <nav>
+      <ul>
+        <li><a href="#products">Produkti</a></li>
+        <li><a href="#order">Pasūtīt</a></li>
+        <li><a href="#testimonials">Atsauksmes</a></li>
+        <li><a href="#contact">Kontakti</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <main>
-    <section>
-      <h2>Produkti</h2>
-      <div id="product-list" class="product-container">
-        <!-- Produkti no JSON tiks ievietoti šeit -->
-      </div>
-    </section>
+  <!-- Produktu sadaļa -->
+  <section id="products">
+    <h2>Produkti</h2>
+    <div id="product-list" class="card-grid"></div>
+  </section>
 
-    <section>
-      <h2>Atsauksmes</h2>
-      <div id="testimonial-list" class="testimonial-container">
-        <!-- Atsauksmes no JSON tiks ievietotas šeit -->
-      </div>
-    </section>
-  </main>
+  <!-- Pasūtījuma forma -->
+  <section id="order">
+    <h2>Pasūtīt</h2>
+    <form id="order-form">
+      <input type="text" placeholder="Vārds" required />
+      <input type="email" placeholder="E-pasts" required />
+      <textarea placeholder="Jūsu pasūtījums" required></textarea>
+      <button type="submit">Nosūtīt</button>
+    </form>
+  </section>
 
-  <footer>
-    <p>&copy; 2025 Maigais Saldums. Visas tiesības aizsargātas.</p>
+  <!-- Atsauksmes -->
+  <section id="testimonials">
+    <h2>Atsauksmes</h2>
+    <div id="testimonial-list" class="testimonial-grid"></div>
+  </section>
+
+  <!-- Kontakti -->
+  <footer id="contact">
+    <h2>Sazinies ar mums</h2>
+    <p>E-pasts: info@maigaissaldums.lv</p>
+    <p>Instagram: @maigais_saldums</p>
   </footer>
 </body>
 </html>
