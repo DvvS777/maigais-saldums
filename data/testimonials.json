@@ -1,22 +1,20 @@
 [
   {
-    "name": "Anna",
-    "comment": "Šokolādes torte bija pasakaini garda! Viesi bija sajūsmā.",
-    "rating": 5
+    "name": "Laura K.",
+    "image": "images/testimonials/laura.jpg",
+    "rating": 5,
+    "text": "Torte bija tik garda un maiga, ka aizmirsu par diētu. Noteikti pasūtīšu vēl!"
   },
   {
-    "name": "Jānis",
-    "comment": "Napaleons bija īsts meistardarbs – kraukšķīgs un maigs vienlaikus!",
-    "rating": 5
+    "name": "Jānis B.",
+    "image": "images/testimonials/janis.jpg",
+    "rating": 5,
+    "text": "Riekstiņu cepumi aizrāva visus manus viesus. Tie ir kā mazas garšas debestiņas!"
   },
   {
-    "name": "Elīna",
-    "comment": "Pasūtījums tika piegādāts laikā un cepumi bija tik gardi, ka pazuda pāris minūtēs!",
-    "rating": 4
-  },
-  {
-    "name": "Mārtiņš",
-    "comment": "Piena torte bija eleganta un ar izsmalcinātu garšu. Ļoti iesaku!",
-    "rating": 5
+    "name": "Kristīne A.",
+    "image": "images/testimonials/kristine.jpg",
+    "rating": 4.5,
+    "text": "Pasūtīju dzimšanas dienas torti, un tā pārspēja visas manas cerības. Dizains un garša – izcili!"
   }
 ]
