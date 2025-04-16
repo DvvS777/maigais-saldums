@@ -22,11 +22,20 @@
     </nav>
   </header>
 
-  <!-- Produktu sadaļa -->
-  <section id="products">
-    <h2>Produkti</h2>
-    <div id="product-list" class="card-grid"></div>
-  </section>
+<!-- Produktu sadaļa -->
+<section id="products">
+  <h2>Produkti</h2>
+
+  <!-- Filtra pogas -->
+  <div class="tabs-container">
+    <button class="tab-btn active" data-category="all">Visi produkti</button>
+    <button class="tab-btn" data-category="cakes">Tortes</button>
+    <button class="tab-btn" data-category="cookies">Riekstiņi</button>
+  </div>
+
+  <!-- Produktu kartīšu konteineris -->
+  <div id="product-list" class="card-grid"></div>
+</section>
 
   <!-- Pasūtījuma forma -->
   <section id="order">
