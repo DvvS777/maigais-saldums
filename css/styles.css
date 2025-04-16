@@ -44,11 +44,13 @@ nav a:hover {
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 24px;
+  gap: 30px;
   padding: 40px;
 }
 
 .card {
+  display: flex;
+  flex-direction: column;
   background-color: white;
   border-radius: 10px;
   overflow: hidden;
@@ -62,39 +64,61 @@ nav a:hover {
 
 .product-image-wrapper {
   width: 100%;
-  aspect-ratio: 1 / 1;
+  height: 200px;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 8px;
-  margin-bottom: 10px;
+  background-color: #f7f7f7;
 }
 
 .product-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 8px;
   display: block;
 }
 
 .card .info {
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 }
 
 .card .info h3 {
-  margin-top: 0;
+  margin: 0 0 10px 0;
+  font-size: 18px;
+  color: #3e2723;
 }
 
 .card .info p {
+  flex-grow: 1;
   color: #555;
+  font-size: 14px;
 }
 
 .card .info .price {
   color: #8B4513;
   font-weight: bold;
   margin-top: 10px;
+}
+
+.card .view-button {
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #8B4513;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.card .view-button:hover {
+  background-color: #6d3710;
 }
 
 /* Forma */
