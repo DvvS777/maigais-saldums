@@ -1,27 +1,27 @@
 [
   {
-    "title": "Šokolādes sapņa torte",
+    "name": "Šokolādes sapņa torte",
     "description": "Apburošs šokolādes mākslas darbs ar maigiem kakao slāņiem un samtainu krēmu. Katra šī tortes maliņa ir kā ceļojums dziļās šokolādes simfonijā.",
     "price": "€28.00",
     "image": "cakes/sokolades_torte_1.jpg",
     "category": "Torte"
   },
   {
-    "title": "Napoleona torte",
+    "name": "Napoleona torte",
     "description": "Klasiska Napoleona torte ar daudziem kraukšķīgiem kārtainās mīklas slāņiem un vieglu krēma pildījumu, kas kūst mutē.",
     "price": "€30.00",
     "image": "cakes/napoleons_torte_1.jpg",
     "category": "Torte"
   },
   {
-    "title": "Piena maiguma torte",
+    "name": "Piena maiguma torte",
     "description": "Īpaši maiga un krēmīga torte ar piena un vaniļas nokrāsām. Ideāli piemērota tiem, kas mīl samtainu saldumu.",
     "price": "€29.00",
     "image": "cakes/piena_torte_1.jpg",
     "category": "Torte"
   },
   {
-    "title": "Krāsainie riekstiņu cepumi",
+    "name": "Krāsainie riekstiņu cepumi",
     "description": "Tradicionāli riekstiņu cepumi ar krāsainu dekoru. Trausli, ar riekstu pildījumu, kas pārsteigs gan garšas, gan izskata ziņā.",
     "price": "€12.00 / 10 gab",
     "image": "cookies/riekstini_krasaini_1.jpg",
