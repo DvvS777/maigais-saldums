@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<!-- Augšējais viļņveida fons -->
+<!-- Hero sadaļa ar viļņveida fonu un filtriem -->
 <section class="hero-section">
   <div class="wave-background"></div>
   <div class="hero-content">
@@ -24,50 +24,36 @@
   </div>
 </section>
 
-<!-- Produktu kartītes -->
+<!-- Produktu kartītes (viens un vienīgais konteiners) -->
 <section class="product-section">
   <div id="product-list" class="product-grid">
     <!-- Kartītes tiks ielādētas no JS -->
   </div>
 </section>
 
-<!-- Produktu sadaļa -->
-<section id="products">
-  <h2>Produkti</h2>
-
-  <!-- Filtra pogas -->
-  <div class="tabs-container">
-    <button class="tab-btn active" data-category="all">Visi produkti</button>
-    <button class="tab-btn" data-category="cakes">Tortes</button>
-    <button class="tab-btn" data-category="cookies">Riekstiņi</button>
-  </div>
-
-  <!-- Produktu kartīšu konteineris -->
-  <div id="product-list" class="card-grid"></div>
+<!-- Pasūtījuma forma -->
+<section id="order">
+  <h2>Pasūtīt</h2>
+  <form id="order-form">
+    <input type="text" placeholder="Vārds" required />
+    <input type="email" placeholder="E-pasts" required />
+    <textarea placeholder="Jūsu pasūtījums" required></textarea>
+    <button type="submit">Nosūtīt</button>
+  </form>
 </section>
 
-  <!-- Pasūtījuma forma -->
-  <section id="order">
-    <h2>Pasūtīt</h2>
-    <form id="order-form">
-      <input type="text" placeholder="Vārds" required />
-      <input type="email" placeholder="E-pasts" required />
-      <textarea placeholder="Jūsu pasūtījums" required></textarea>
-      <button type="submit">Nosūtīt</button>
-    </form>
-  </section>
+<!-- Atsauksmes -->
+<section id="testimonials">
+  <h2>Atsauksmes</h2>
+  <div id="testimonial-list" class="testimonial-grid"></div>
+</section>
 
-  <!-- Atsauksmes -->
-  <section id="testimonials">
-    <h2>Atsauksmes</h2>
-    <div id="testimonial-list" class="testimonial-grid"></div>
-  </section>
+<!-- Kontakti -->
+<footer id="contact">
+  <h2>Sazinies ar mums</h2>
+  <p>E-pasts: info@maigaissaldums.lv</p>
+  <p>Instagram: @maigais_saldums</p>
+</footer>
 
-  <!-- Kontakti -->
-  <footer id="contact">
-    <h2>Sazinies ar mums</h2>
-    <p>E-pasts: info@maigaissaldums.lv</p>
-    <p>Instagram: @maigais_saldums</p>
-  </footer>
 </body>
 </html>
