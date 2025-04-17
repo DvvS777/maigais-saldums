@@ -1,49 +1,56 @@
-document.addEventListener('DOMContentLoaded', async function () {
-  const config = await fetch('data/config.json').then(res => res.json());
-  const productData = await fetch('data/products.json').then(res => res.json());
+// Produktu dati tiek ielādēti no ārējā JSON faila
+fetch('data/products.json')
+  .then(response => response.json())
+  .then(data => {
+    renderProducts(data);
+    setupFiltering(data);
+  })
+  .catch(error => {
+    console.error('Kļūda ielādējot produktus:', error);
+  });
 
-  const productList = document.getElementById('product-list');
-  const filterContainer = document.getElementById('product-filters');
+// Funkcija produktu attēlošanai
+function renderProducts(products) {
+  const container = document.getElementById('product-list');
+  container.innerHTML = '';
 
-  // Funkcija, lai izveidotu vienu produkta kartīti
-  function createProductCard(product) {
-    return `
-      <div class="card tab-content" data-category="${product.category}">
-        <img src="${product.image}" alt="${product.name}" />
-        <div class="info">
-          <h3>${product.name}</h3>
-          <p>${product.description}</p>
-          <div class="price">${product.price}</div>
-          <button class="view-button">Apskatīt</button>
-        </div>
+  products.forEach(product => {
+    const card = document.createElement('div');
+    card.classList.add('card');
+    card.setAttribute('data-category', product.category);
+
+    card.innerHTML = `
+      <div class="product-image-wrapper">
+        <img src="images/${product.image}" alt="${product.name}" class="product-image" />
+      </div>
+      <div class="info">
+        <h3>${product.name}</h3>
+        <p>${product.description}</p>
+        <p class="price">${product.price}</p>
+        <button class="view-btn">Apskatīt</button>
       </div>
     `;
-  }
 
-  // Ievieto visus produktus lapā
-  productList.innerHTML = productData.map(p => createProductCard(p)).join('');
+    container.appendChild(card);
+  });
+}
 
-  // Izveido filtrus dinamiski
-  let categories = [...new Set(productData.map(p => p.category))];
-  filterContainer.innerHTML = `
-    <button class="tab-btn active" data-category="all">Visi produkti</button>
-    ${categories.map(cat => `<button class="tab-btn" data-category="${cat}">${cat}</button>`).join('')}
-  `;
+// Filtrēšanas funkcionalitāte
+function setupFiltering(products) {
+  const buttons = document.querySelectorAll('.filter-btn, .tab-btn');
 
-  // Filtra darbība
-  document.querySelectorAll('.tab-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const category = btn.getAttribute('data-category');
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      // Poga kļūst aktīva
+      buttons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
 
-      document.querySelectorAll('.tab-content').forEach(card => {
-        if (category === 'all' || card.dataset.category === category) {
-          card.style.display = 'block';
-        } else {
-          card.style.display = 'none';
-        }
-      });
+      const category = button.getAttribute('data-category');
+      const filtered = category === 'all'
+        ? products
+        : products.filter(product => product.category === category);
+
+      renderProducts(filtered);
     });
   });
-});
+}
