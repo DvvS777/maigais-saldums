@@ -5,22 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Maigais Saldums</title>
   <link rel="stylesheet" href="css/styles.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <script defer src="js/scripts.js"></script>
 </head>
 <body>
-  <!-- Navigācija -->
-  <header>
-    <h1>Maigais Saldums</h1>
-    <nav>
-      <ul>
-        <li><a href="#products">Produkti</a></li>
-        <li><a href="#order">Pasūtīt</a></li>
-        <li><a href="#testimonials">Atsauksmes</a></li>
-        <li><a href="#contact">Kontakti</a></li>
-      </ul>
-    </nav>
-  </header>
+
+<!-- Augšējais viļņveida fons -->
+<section class="hero-section">
+  <div class="wave-background"></div>
+  <div class="hero-content">
+    <h2>Mūsu īpašie piedāvājumi</h2>
+    <p>Katrs mūsu saldums ir radīts ar mīlestību un rūpēm, lai sniegtu jums neaizmirstamu garšas piedzīvojumu.</p>
+
+    <div class="filter-buttons">
+      <button class="filter-btn active" data-category="all">Visi produkti</button>
+      <button class="filter-btn" data-category="Torte">Tortes</button>
+      <button class="filter-btn" data-category="Riekstiņi">Riekstiņu cepumi</button>
+    </div>
+  </div>
+</section>
+
+<!-- Produktu kartītes -->
+<section class="product-section">
+  <div id="product-list" class="product-grid">
+    <!-- Kartītes tiks ielādētas no JS -->
+  </div>
+</section>
 
 <!-- Produktu sadaļa -->
 <section id="products">
