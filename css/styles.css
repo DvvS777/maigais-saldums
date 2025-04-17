@@ -1,139 +1,166 @@
-/* Pamatstili */
+/* Fonti un pamatkrāsas */
 body {
-  font-family: 'Segoe UI', sans-serif;
   margin: 0;
-  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
   background-color: #fff8f0;
   color: #3e2723;
 }
 
-h1, h2 {
+/* Hero sadaļa ar viļņveida fonu */
+.hero-section {
+  position: relative;
+  background: linear-gradient(rgba(255,248,240,0.8), rgba(255,248,240,0.95));
   text-align: center;
-  color: #8B4513;
+  padding: 100px 20px 80px;
+  overflow: hidden;
 }
 
-header {
-  background-color: #fff;
-  padding: 20px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  position: sticky;
+.wave-background {
+  position: absolute;
   top: 0;
-  z-index: 100;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  background: url('https://www.svgrepo.com/show/310920/wave.svg') no-repeat top center;
+  background-size: cover;
+  z-index: 0;
 }
 
-nav ul {
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-content h2 {
+  font-size: 2.5rem;
+  color: #8B4513;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+/* Filtra pogas */
+.filter-buttons, .tabs-container {
   display: flex;
   justify-content: center;
-  gap: 20px;
-  list-style: none;
-  padding: 0;
-  margin: 10px 0 0 0;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 40px;
 }
 
-nav a {
-  text-decoration: none;
+.filter-btn,
+.tab-btn {
+  padding: 10px 20px;
+  border: 2px solid #8B4513;
+  background-color: white;
   color: #8B4513;
   font-weight: bold;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-nav a:hover {
-  color: #F5B7B1;
+.filter-btn.active,
+.tab-btn.active {
+  background-color: #8B4513;
+  color: white;
+}
+
+.filter-btn:hover,
+.tab-btn:hover {
+  background-color: #F5B7B1;
+  color: #3e2723;
 }
 
 /* Produktu kartītes */
+.product-grid,
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 24px;
-  padding: 40px;
+  padding: 40px 20px;
 }
 
-.card {
-  display: flex;
-  flex-direction: column;
+.product-card {
   background-color: white;
-  border-radius: 10px;
+  border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
 
-.card:hover {
+.product-card:hover {
   transform: translateY(-5px);
 }
 
 .product-image-wrapper {
   width: 100%;
-  height: 220px;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 8px 8px 0 0;
+  background-color: #fefefe;
 }
 
 .product-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 8px 8px 0 0;
   display: block;
 }
 
-.card .info {
-  flex-grow: 1;
+.product-info {
   padding: 20px;
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.card .info h3 {
+.product-info h3 {
   margin-top: 0;
-  font-size: 1.1em;
-}
-
-.card .info p {
-  color: #555;
-  flex-grow: 1;
-  margin: 10px 0;
-  font-size: 0.95em;
-}
-
-.card .info .price {
-  color: #8B4513;
-  font-weight: bold;
   margin-bottom: 10px;
+  color: #8B4513;
+  font-size: 1.2rem;
 }
 
-.card .info button {
-  background-color: #8B4513;
-  color: white;
-  padding: 8px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+.product-info p {
+  flex-grow: 1;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.product-price {
+  margin-top: 15px;
   font-weight: bold;
-}
-
-.card .info button:hover {
-  background-color: #6d3710;
+  color: #8B4513;
+  font-size: 1.1rem;
 }
 
 /* Forma */
 form {
-  display: flex;
-  flex-direction: column;
   max-width: 500px;
   margin: 0 auto;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
-form input, form textarea {
-  padding: 10px;
+form input,
+form textarea {
+  padding: 12px;
   margin: 10px 0;
-  border-radius: 6px;
   border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
 }
 
 form button {
@@ -142,8 +169,10 @@ form button {
   padding: 12px;
   border: none;
   border-radius: 6px;
-  cursor: pointer;
+  font-size: 1rem;
   font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 form button:hover {
@@ -166,9 +195,10 @@ form button:hover {
   border-radius: 6px;
 }
 
+/* Footer */
 footer {
-  text-align: center;
   background-color: #f8e2cf;
-  padding: 30px;
+  text-align: center;
+  padding: 30px 20px;
   margin-top: 40px;
 }
