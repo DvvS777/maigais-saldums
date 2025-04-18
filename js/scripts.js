@@ -16,7 +16,7 @@ function renderProducts(products) {
 
   products.forEach(product => {
     const card = document.createElement('div');
-    card.classList.add('product-card'); // ← LABOJUMS
+    card.classList.add('product-card');
     card.setAttribute('data-category', product.category);
 
     card.innerHTML = `
@@ -27,7 +27,7 @@ function renderProducts(products) {
         <h3>${product.title}</h3>
         <p>${product.description}</p>
         <p class="product-price">${product.price}</p>
-        <button class="view-btn" data-title="${product.title}">Apskatīt</button>
+        <button class="view-btn">Apskatīt</button>
       </div>
     `;
 
