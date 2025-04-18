@@ -16,18 +16,18 @@ function renderProducts(products) {
 
   products.forEach(product => {
     const card = document.createElement('div');
-    card.classList.add('card');
+    card.classList.add('product-card');
     card.setAttribute('data-category', product.category);
 
     card.innerHTML = `
       <div class="product-image-wrapper">
-        <img src="images/${product.image}" alt="${product.name}" class="product-image" />
+        <img src="${product.image}" alt="${product.title}" class="product-image" />
       </div>
-      <div class="info">
-        <h3>${product.name}</h3>
+      <div class="product-info">
+        <h3>${product.title}</h3>
         <p>${product.description}</p>
-        <p class="price">${product.price}</p>
-        <button class="view-btn">Apskatīt</button>
+        <p class="product-price">${product.price}</p>
+        <button class="view-btn" data-title="${product.title}">Apskatīt</button>
       </div>
     `;
 
@@ -41,7 +41,7 @@ function setupFiltering(products) {
 
   buttons.forEach(button => {
     button.addEventListener('click', () => {
-      // Poga kļūst aktīva
+      // Aktīvā poga
       buttons.forEach(btn => btn.classList.remove('active'));
       button.classList.add('active');
 
