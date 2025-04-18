@@ -16,7 +16,7 @@ function renderProducts(products) {
 
   products.forEach(product => {
     const card = document.createElement('div');
-    card.classList.add('product-card');
+    card.classList.add('product-card'); // ← LABOJUMS
     card.setAttribute('data-category', product.category);
 
     card.innerHTML = `
@@ -41,7 +41,6 @@ function setupFiltering(products) {
 
   buttons.forEach(button => {
     button.addEventListener('click', () => {
-      // Aktīvā poga
       buttons.forEach(btn => btn.classList.remove('active'));
       button.classList.add('active');
 
