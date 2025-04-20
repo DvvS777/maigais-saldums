@@ -21,10 +21,10 @@ function renderProducts(products) {
 
     card.innerHTML = `
       <div class="product-image-wrapper">
-        <img src="${product.image}" alt="${product.title}" class="product-image" />
+        <img src="images/${product.image}" alt="${product.name}" class="product-image" />
       </div>
       <div class="product-info">
-        <h3>${product.title}</h3>
+        <h3>${product.name}</h3>
         <p>${product.description}</p>
         <p class="product-price">${product.price}</p>
         <button class="view-btn">Apskatīt</button>
