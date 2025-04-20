@@ -239,13 +239,15 @@ form button:hover {
   max-width: 960px;
   padding: 10px 0;
 
-  /* Scrollbar paslēpšana */
-  scrollbar-width: none;          /* Firefox */
-  -ms-overflow-style: none;       /* Internet Explorer */
+  scrollbar-width: none;        /* Firefox */
+  -ms-overflow-style: none;     /* Internet Explorer / Edge */
 }
 
 .testimonial-slider::-webkit-scrollbar {
-  display: none;                  /* Chrome, Safari, Edge */
+  width: 0;
+  height: 0;
+  background: transparent;
+  display: none;                /* Chrome, Safari */
 }
 
 .slider-btn {
