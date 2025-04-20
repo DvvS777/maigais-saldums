@@ -54,18 +54,18 @@ function setupFiltering(products) {
   });
 }
 
-// Ielādē atsauksmes no JSON un attēlo
+// Ielādē atsauksmes no JSON un attēlo sliderī
 fetch('data/testimonials.json')
   .then(response => response.json())
   .then(data => {
-    renderTestimonialSlider(data);
+    renderTestimonials(data);
   })
   .catch(error => {
     console.error('Kļūda ielādējot atsauksmes:', error);
   });
 
-// Funkcija atsauksmju slidera renderēšanai
-function renderTestimonialSlider(testimonials) {
+// Funkcija atsauksmju renderēšanai sliderī
+function renderTestimonials(testimonials) {
   const container = document.getElementById('testimonial-slider');
   container.innerHTML = '';
 
@@ -73,12 +73,10 @@ function renderTestimonialSlider(testimonials) {
     const card = document.createElement('div');
     card.classList.add('testimonial');
 
-    const imagePath = testimonial.image && testimonial.image.trim() !== ''
-      ? testimonial.image
-      : 'images/testimonials/default.jpg';
+    const imageSrc = testimonial.image ? testimonial.image : 'images/testimonials/default.jpg';
 
     card.innerHTML = `
-      <img src="${imagePath}" alt="${testimonial.name}" class="testimonial-image">
+      <img src="${imageSrc}" alt="${testimonial.name}">
       <h4>${testimonial.name}</h4>
       <div class="testimonial-rating">${getStars(testimonial.rating)}</div>
       <p>"${testimonial.text}"</p>
@@ -86,11 +84,9 @@ function renderTestimonialSlider(testimonials) {
 
     container.appendChild(card);
   });
-
-  initSlider();
 }
 
-// Funkcija zvaigžņu attēlošanai
+// Zvaigžņu attēlošanas funkcija
 function getStars(rating) {
   const fullStar = '⭐';
   const halfStar = '⭐️'.slice(0, 1);
@@ -103,19 +99,11 @@ function getStars(rating) {
   return fullStar.repeat(full) + (half ? halfStar : '') + emptyStar.repeat(empty);
 }
 
-// Slider funkcionalitāte
-function initSlider() {
-  const slider = document.getElementById('testimonial-slider');
-  const prevBtn = document.getElementById('prev-btn');
-  const nextBtn = document.getElementById('next-btn');
-  let scrollAmount = 0;
-  const scrollStep = 330; // katra kartīte ar margin
+// Slidera pogas
+document.getElementById('prev-btn').addEventListener('click', () => {
+  document.getElementById('testimonial-slider').scrollBy({ left: -320, behavior: 'smooth' });
+});
 
-  prevBtn.addEventListener('click', () => {
-    slider.scrollBy({ left: -scrollStep, behavior: 'smooth' });
-  });
-
-  nextBtn.addEventListener('click', () => {
-    slider.scrollBy({ left: scrollStep, behavior: 'smooth' });
-  });
-}
+document.getElementById('next-btn').addEventListener('click', () => {
+  document.getElementById('testimonial-slider').scrollBy({ left: 320, behavior: 'smooth' });
+});
