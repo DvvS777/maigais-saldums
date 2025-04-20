@@ -37,7 +37,7 @@ function renderProducts(products) {
 
 // Filtrēšanas funkcionalitāte
 function setupFiltering(products) {
-  const buttons = document.querySelectorAll('.filter-btn, .tab-btn');
+  const buttons = document.querySelectorAll('.filter-btn');
 
   buttons.forEach(button => {
     button.addEventListener('click', () => {
@@ -54,65 +54,43 @@ function setupFiltering(products) {
   });
 }
 
-// Ielādē atsauksmes no JSON un attēlo karuselī
+// Ielādē atsauksmes no JSON un attēlo
 fetch('data/testimonials.json')
   .then(response => response.json())
   .then(data => {
-    renderTestimonials(data);
+    renderTestimonialSlider(data);
   })
   .catch(error => {
     console.error('Kļūda ielādējot atsauksmes:', error);
   });
 
-let testimonialIndex = 0;
+// Funkcija atsauksmju slidera renderēšanai
+function renderTestimonialSlider(testimonials) {
+  const container = document.getElementById('testimonial-slider');
+  container.innerHTML = '';
 
-// Funkcija atsauksmju renderēšanai
-function renderTestimonials(testimonials) {
-  const container = document.getElementById('testimonial-list');
-  const leftBtn = document.getElementById('testimonial-left');
-  const rightBtn = document.getElementById('testimonial-right');
+  testimonials.forEach(testimonial => {
+    const card = document.createElement('div');
+    card.classList.add('testimonial');
 
-  function updateView() {
-    container.innerHTML = '';
-    const visible = testimonials.slice(testimonialIndex, testimonialIndex + 3);
+    const imagePath = testimonial.image && testimonial.image.trim() !== ''
+      ? testimonial.image
+      : 'images/testimonials/default.jpg';
 
-    visible.forEach(testimonial => {
-      const card = document.createElement('div');
-      card.classList.add('testimonial');
+    card.innerHTML = `
+      <img src="${imagePath}" alt="${testimonial.name}" class="testimonial-image">
+      <h4>${testimonial.name}</h4>
+      <div class="testimonial-rating">${getStars(testimonial.rating)}</div>
+      <p>"${testimonial.text}"</p>
+    `;
 
-      const imageSrc = testimonial.image && testimonial.image !== ''
-        ? testimonial.image
-        : 'images/default.jpg';
-
-      card.innerHTML = `
-        <img src="${imageSrc}" alt="${testimonial.name}" class="testimonial-image">
-        <h4>${testimonial.name}</h4>
-        <div class="testimonial-rating">${getStars(testimonial.rating)}</div>
-        <p>"${testimonial.text}"</p>
-      `;
-
-      container.appendChild(card);
-    });
-  }
-
-  leftBtn.addEventListener('click', () => {
-    if (testimonialIndex > 0) {
-      testimonialIndex -= 1;
-      updateView();
-    }
+    container.appendChild(card);
   });
 
-  rightBtn.addEventListener('click', () => {
-    if (testimonialIndex + 3 < testimonials.length) {
-      testimonialIndex += 1;
-      updateView();
-    }
-  });
-
-  updateView();
+  initSlider();
 }
 
-// Palīgfunkcija zvaigžņu attēlošanai
+// Funkcija zvaigžņu attēlošanai
 function getStars(rating) {
   const fullStar = '⭐';
   const halfStar = '⭐️'.slice(0, 1);
@@ -123,4 +101,21 @@ function getStars(rating) {
   const empty = 5 - full - half;
 
   return fullStar.repeat(full) + (half ? halfStar : '') + emptyStar.repeat(empty);
+}
+
+// Slider funkcionalitāte
+function initSlider() {
+  const slider = document.getElementById('testimonial-slider');
+  const prevBtn = document.getElementById('prev-btn');
+  const nextBtn = document.getElementById('next-btn');
+  let scrollAmount = 0;
+  const scrollStep = 330; // katra kartīte ar margin
+
+  prevBtn.addEventListener('click', () => {
+    slider.scrollBy({ left: -scrollStep, behavior: 'smooth' });
+  });
+
+  nextBtn.addEventListener('click', () => {
+    slider.scrollBy({ left: scrollStep, behavior: 'smooth' });
+  });
 }
