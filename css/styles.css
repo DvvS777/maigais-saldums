@@ -311,13 +311,12 @@ footer {
 
 .testimonial-grid {
   display: flex;
-  justify-content: center;
-  align-items: stretch;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 32px;
   padding: 40px 20px;
-  max-width: 1200px;
   margin: 0 auto;
+  max-width: 1000px;
 }
 
 .testimonial {
@@ -326,18 +325,18 @@ footer {
   padding: 20px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
   border-radius: 10px;
-  max-width: 280px;
-  text-align: center;
+  flex: 1 1 280px;
+  max-width: 300px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 }
 
-/* 🧑 Atsauksmju bilde – apaļa un lielāka */
-.testimonial-image {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
+.testimonial img {
+  width: 60px;
+  height: 60px;
   object-fit: cover;
-  margin-bottom: 12px;
+  border-radius: 50%;
+  margin-bottom: 10px;
 }
