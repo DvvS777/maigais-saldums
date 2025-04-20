@@ -309,17 +309,32 @@ footer {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Atsauksmes – attēls un zvaigžņu vērtējums */
-.testimonial img.testimonial-image {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 10px;
+.testimonial-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 32px;
+  padding: 40px 20px;
 }
 
-.testimonial-rating {
-  margin-bottom: 8px;
-  font-size: 1.2rem;
-  color: #ffb400;
+.testimonial {
+  background-color: white;
+  border-left: 5px solid #F5B7B1;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  border-radius: 10px;
+  max-width: 280px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 🧑 Atsauksmju bilde – apaļa un lielāka */
+.testimonial-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 12px;
 }
