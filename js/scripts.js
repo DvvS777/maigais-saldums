@@ -54,7 +54,7 @@ function setupFiltering(products) {
   });
 }
 
-// Ielādē atsauksmes no JSON un attēlo
+// Ielādē atsauksmes no JSON un attēlo karuselī
 fetch('data/testimonials.json')
   .then(response => response.json())
   .then(data => {
@@ -64,30 +64,58 @@ fetch('data/testimonials.json')
     console.error('Kļūda ielādējot atsauksmes:', error);
   });
 
+let testimonialIndex = 0;
+
 // Funkcija atsauksmju renderēšanai
 function renderTestimonials(testimonials) {
   const container = document.getElementById('testimonial-list');
-  container.innerHTML = '';
+  const leftBtn = document.getElementById('testimonial-left');
+  const rightBtn = document.getElementById('testimonial-right');
 
-  testimonials.forEach(testimonial => {
-    const card = document.createElement('div');
-    card.classList.add('testimonial');
+  function updateView() {
+    container.innerHTML = '';
+    const visible = testimonials.slice(testimonialIndex, testimonialIndex + 3);
 
-    card.innerHTML = `
-      <img src="${testimonial.image}" alt="${testimonial.name}" class="testimonial-image">
-      <h4>${testimonial.name}</h4>
-      <div class="testimonial-rating">${getStars(testimonial.rating)}</div>
-      <p>"${testimonial.text}"</p>
-    `;
+    visible.forEach(testimonial => {
+      const card = document.createElement('div');
+      card.classList.add('testimonial');
 
-    container.appendChild(card);
+      const imageSrc = testimonial.image && testimonial.image !== ''
+        ? testimonial.image
+        : 'images/default.jpg';
+
+      card.innerHTML = `
+        <img src="${imageSrc}" alt="${testimonial.name}" class="testimonial-image">
+        <h4>${testimonial.name}</h4>
+        <div class="testimonial-rating">${getStars(testimonial.rating)}</div>
+        <p>"${testimonial.text}"</p>
+      `;
+
+      container.appendChild(card);
+    });
+  }
+
+  leftBtn.addEventListener('click', () => {
+    if (testimonialIndex > 0) {
+      testimonialIndex -= 1;
+      updateView();
+    }
   });
+
+  rightBtn.addEventListener('click', () => {
+    if (testimonialIndex + 3 < testimonials.length) {
+      testimonialIndex += 1;
+      updateView();
+    }
+  });
+
+  updateView();
 }
 
 // Palīgfunkcija zvaigžņu attēlošanai
 function getStars(rating) {
   const fullStar = '⭐';
-  const halfStar = '⭐️'.slice(0, 1); // vai pielāgot ar ikonu
+  const halfStar = '⭐️'.slice(0, 1);
   const emptyStar = '☆';
 
   const full = Math.floor(rating);
