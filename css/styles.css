@@ -238,6 +238,14 @@ form button:hover {
   scroll-behavior: smooth;
   max-width: 960px;
   padding: 10px 0;
+
+  /* Scrollbar paslēpšana */
+  scrollbar-width: none;          /* Firefox */
+  -ms-overflow-style: none;       /* Internet Explorer */
+}
+
+.testimonial-slider::-webkit-scrollbar {
+  display: none;                  /* Chrome, Safari, Edge */
 }
 
 .slider-btn {
@@ -248,6 +256,7 @@ form button:hover {
   cursor: pointer;
   transition: transform 0.2s ease;
 }
+
 .slider-btn:hover {
   transform: scale(1.2);
 }
