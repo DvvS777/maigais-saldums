@@ -53,3 +53,46 @@ function setupFiltering(products) {
     });
   });
 }
+
+// Ielādē atsauksmes no JSON un attēlo
+fetch('data/testimonials.json')
+  .then(response => response.json())
+  .then(data => {
+    renderTestimonials(data);
+  })
+  .catch(error => {
+    console.error('Kļūda ielādējot atsauksmes:', error);
+  });
+
+// Funkcija atsauksmju renderēšanai
+function renderTestimonials(testimonials) {
+  const container = document.getElementById('testimonial-list');
+  container.innerHTML = '';
+
+  testimonials.forEach(testimonial => {
+    const card = document.createElement('div');
+    card.classList.add('testimonial');
+
+    card.innerHTML = `
+      <img src="${testimonial.image}" alt="${testimonial.name}" class="testimonial-image">
+      <h4>${testimonial.name}</h4>
+      <div class="testimonial-rating">${getStars(testimonial.rating)}</div>
+      <p>"${testimonial.text}"</p>
+    `;
+
+    container.appendChild(card);
+  });
+}
+
+// Palīgfunkcija zvaigžņu attēlošanai
+function getStars(rating) {
+  const fullStar = '⭐';
+  const halfStar = '⭐️'.slice(0, 1); // vai pielāgot ar ikonu
+  const emptyStar = '☆';
+
+  const full = Math.floor(rating);
+  const half = rating % 1 >= 0.5 ? 1 : 0;
+  const empty = 5 - full - half;
+
+  return fullStar.repeat(full) + (half ? halfStar : '') + emptyStar.repeat(empty);
+}
