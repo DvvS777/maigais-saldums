@@ -308,3 +308,18 @@ footer {
   from { opacity: 0; transform: translateY(-20px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+/* Atsauksmes – attēls un zvaigžņu vērtējums */
+.testimonial img.testimonial-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.testimonial-rating {
+  margin-bottom: 8px;
+  font-size: 1.2rem;
+  color: #ffb400;
+}
