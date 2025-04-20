@@ -1,4 +1,6 @@
-/* Fonti un pamatkrāsas */
+/* ======================== */
+/* FONTI UN PAMATKRĀSAS */
+/* ======================== */
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
@@ -6,7 +8,9 @@ body {
   color: #3e2723;
 }
 
-/* Hero sadaļa ar viļņveida fonu */
+/* ======================== */
+/* HERO SEKCIJA */
+/* ======================== */
 .hero-section {
   position: relative;
   background: linear-gradient(rgba(255,248,240,0.8), rgba(255,248,240,0.95));
@@ -44,17 +48,18 @@ body {
   margin-bottom: 2rem;
 }
 
-/* Filtra pogas */
-.filter-buttons, .tabs-container {
+/* ======================== */
+/* FILTRA POGAS */
+/* ======================== */
+.filter-buttons {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 12px;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
-.filter-btn,
-.tab-btn {
+.filter-btn {
   padding: 10px 20px;
   border: 2px solid #8B4513;
   background-color: white;
@@ -65,30 +70,28 @@ body {
   transition: all 0.3s ease;
 }
 
-.filter-btn.active,
-.tab-btn.active {
+.filter-btn.active {
   background-color: #8B4513;
   color: white;
 }
 
-.filter-btn:hover,
-.tab-btn:hover {
+.filter-btn:hover {
   background-color: #F5B7B1;
   color: #3e2723;
 }
 
-/* Produktu sadaļa */
+/* ======================== */
+/* PRODUKTU KARTĪTES */
+/* ======================== */
 .product-section {
-  padding: 20px 20px; /* samazināts no 60px */
-  margin-top: -30px;  /* tuvāk filtriem */
+  padding: 20px 20px;
+  margin-top: -30px;
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* Kartiņu režģis - uzlabošana centrēšanai */
-.product-grid,
-.card-grid {
+.product-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -96,7 +99,6 @@ body {
   padding: 40px 20px;
 }
 
-/* Vienas produktu kartītes dizains */
 .product-card {
   width: 280px;
   background-color: white;
@@ -170,7 +172,9 @@ body {
   background-color: #6a320f;
 }
 
-/* Pasūtījuma forma */
+/* ======================== */
+/* PASŪTĪJUMA FORMA */
+/* ======================== */
 #order {
   padding: 60px 20px;
   text-align: center;
@@ -209,17 +213,43 @@ form button:hover {
   background-color: #6d3710;
 }
 
-/* Atsauksmes */
+/* ======================== */
+/* ATSAUKSMES SLIDERIS */
+/* ======================== */
 #testimonials {
   padding: 60px 20px;
   text-align: center;
 }
 
-.testimonial-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+.testimonial-slider-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 40px 0;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.testimonial-slider {
+  display: flex;
   gap: 24px;
-  padding: 40px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  max-width: 960px;
+  padding: 10px 0;
+}
+
+.slider-btn {
+  background-color: transparent;
+  border: none;
+  font-size: 2rem;
+  color: #8B4513;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.slider-btn:hover {
+  transform: scale(1.2);
 }
 
 .testimonial {
@@ -227,10 +257,31 @@ form button:hover {
   border-left: 5px solid #F5B7B1;
   padding: 20px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  border-radius: 6px;
+  border-radius: 10px;
+  flex: 0 0 280px;
+  max-width: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
-/* Footer */
+.testimonial img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.testimonial-rating {
+  margin: 8px 0;
+  font-size: 1.1rem;
+}
+
+/* ======================== */
+/* FOOTER */
+/* ======================== */
 footer {
   background-color: #f8e2cf;
   text-align: center;
@@ -238,10 +289,9 @@ footer {
   margin-top: 40px;
 }
 
-/* ========================= */
-/* MODĀLAIS LOGS – PRODUKTA APSKATE */
-/* ========================= */
-
+/* ======================== */
+/* MODĀLAIS LOGS */
+/* ======================== */
 .modal {
   position: fixed;
   top: 0;
@@ -309,36 +359,4 @@ footer {
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(-20px); }
   to { opacity: 1; transform: translateY(0); }
-}
-
-.testimonial-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 32px;
-  padding: 40px 20px;
-  margin: 0 auto;
-  max-width: 1000px;
-}
-
-.testimonial {
-  background-color: white;
-  border-left: 5px solid #F5B7B1;
-  padding: 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  border-radius: 10px;
-  flex: 1 1 280px;
-  max-width: 300px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.testimonial img {
-  width: 60px;
-  height: 60px;
-  object-fit: cover;
-  border-radius: 50%;
-  margin-bottom: 10px;
 }
