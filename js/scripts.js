@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-
   // Produktu ielāde
   fetch('data/products.json')
     .then(response => response.json())
@@ -34,13 +33,12 @@ document.addEventListener('DOMContentLoaded', function () {
       container.appendChild(card);
     });
 
-    activateProductModals(); // pēc renderēšanas piesaisti pogām
+    activateProductModals();
   }
 
-  // Filtrēšanas funkcionalitāte
+  // Filtri
   function setupFiltering(products) {
     const buttons = document.querySelectorAll('.filter-btn');
-
     buttons.forEach(button => {
       button.addEventListener('click', () => {
         buttons.forEach(btn => btn.classList.remove('active'));
@@ -62,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function () {
     .then(data => renderTestimonials(data))
     .catch(error => console.error('Kļūda ielādējot atsauksmes:', error));
 
-  // Atsauksmju renderēšana
+  // Atsauksmju kartītes
   function renderTestimonials(testimonials) {
     const container = document.getElementById('testimonial-slider');
     container.innerHTML = '';
@@ -84,6 +82,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  // Zvaigznes
   function getStars(rating) {
     const full = Math.floor(rating);
     const half = rating % 1 >= 0.5 ? 1 : 0;
@@ -91,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function () {
     return '⭐'.repeat(full) + (half ? '⭐️' : '') + '☆'.repeat(empty);
   }
 
-  // Slidera pogas
+  // Slider pogas
   document.getElementById('prev-btn').addEventListener('click', () => {
     document.getElementById('testimonial-slider').scrollBy({ left: -320, behavior: 'smooth' });
   });
@@ -124,11 +123,11 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   modalClose.addEventListener("click", () => modal.classList.add("hidden"));
-  modal.addEventListener("click", e => {
+  modal.addEventListener("click", (e) => {
     if (e.target === modal) modal.classList.add("hidden");
   });
 
-  // FORMAS POP-UP paziņojums
+  // POP-UP pēc pasūtījuma
   const orderForm = document.getElementById("order-form");
   const popup = document.getElementById("form-popup");
   const popupClose = document.getElementById("popup-close");
@@ -142,5 +141,4 @@ document.addEventListener('DOMContentLoaded', function () {
   popupClose.addEventListener("click", () => {
     popup.classList.add("hidden");
   });
-
 });
