@@ -98,6 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
     return fullStar.repeat(full) + (half ? halfStar : '') + emptyStar.repeat(empty);
   }
 
+  // Atsauksmju slidera pogas
   document.getElementById('prev-btn').addEventListener('click', () => {
     document.getElementById('testimonial-slider').scrollBy({ left: -320, behavior: 'smooth' });
   });
@@ -106,6 +107,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('testimonial-slider').scrollBy({ left: 320, behavior: 'smooth' });
   });
 
+  // === MODĀLAIS PRODUKTA LOGS ===
   const modal = document.getElementById("product-modal");
   const modalImage = document.getElementById("modal-image");
   const modalTitle = document.getElementById("modal-title");
@@ -119,49 +121,4 @@ document.addEventListener('DOMContentLoaded', function () {
     viewButtons.forEach(button => {
       button.addEventListener("click", () => {
         const card = button.closest(".product-card");
-        const img = card.querySelector("img").src;
-        const title = card.querySelector("h3").textContent;
-        const desc = card.querySelector("p").textContent;
-        const price = card.querySelector(".product-price").textContent;
-
-        modalImage.src = img;
-        modalTitle.textContent = title;
-        modalDescription.textContent = desc;
-        modalPrice.textContent = price;
-
-        modal.classList.remove("hidden");
-      });
-    });
-  }
-
-  modalClose.addEventListener("click", () => {
-    modal.classList.add("hidden");
-  });
-
-  modal.addEventListener("click", (e) => {
-    if (e.target === modal) {
-      modal.classList.add("hidden");
-    }
-  });
-
-});
-
-// ===== Pasūtījuma formas paziņojums =====
-const orderForm = document.getElementById("order-form");
-const popup = document.getElementById("form-popup");
-const popupClose = document.getElementById("popup-close");
-
-orderForm.addEventListener("submit", (e) => {
-  e.preventDefault(); // novērš formu pārlādēt
-
-  // Šeit var pievienot datu apstrādi / nosūtīšanu uz serveri, ja vajag
-
-  popup.classList.remove("hidden");
-
-  // Notīrām formu pēc nosūtīšanas
-  orderForm.reset();
-});
-
-popupClose.addEventListener("click", () => {
-  popup.classList.add("hidden");
-});
+        const img = card.querySelector("
