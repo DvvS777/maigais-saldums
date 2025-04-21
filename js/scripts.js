@@ -3,8 +3,7 @@ fetch('data/products.json')
   .then(response => response.json())
   .then(data => {
     renderProducts(data);
-    activateProductModals(); // <- ŠEIT PIEVIENOTS!
-    setupFiltering(data);
+    setupFiltering(data); // filtrēšanas pogas piesaista kartītēm
   })
   .catch(error => {
     console.error('Kļūda ielādējot produktus:', error);
@@ -35,7 +34,7 @@ function renderProducts(products) {
     container.appendChild(card);
   });
 
-  activateProductModals(); // <- PIEVIENOTS ARĪ ŠEIT, drošībai
+  activateProductModals(); // piesaista modālos logus tikko izveidotajām kartītēm
 }
 
 // Filtrēšanas funkcionalitāte
@@ -52,8 +51,7 @@ function setupFiltering(products) {
         ? products
         : products.filter(product => product.category === category);
 
-      renderProducts(filtered);
-      activateProductModals(); // <- ŠEIT NOTEIKTI PIEVIENO!
+      renderProducts(filtered); // pārtaisa kartītes pēc filtra
     });
   });
 }
