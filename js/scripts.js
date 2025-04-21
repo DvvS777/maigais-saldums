@@ -3,6 +3,7 @@ fetch('data/products.json')
   .then(response => response.json())
   .then(data => {
     renderProducts(data);
+    activateProductModals(); // <- ŠEIT PIEVIENOTS!
     setupFiltering(data);
   })
   .catch(error => {
@@ -33,6 +34,8 @@ function renderProducts(products) {
 
     container.appendChild(card);
   });
+
+  activateProductModals(); // <- PIEVIENOTS ARĪ ŠEIT, drošībai
 }
 
 // Filtrēšanas funkcionalitāte
@@ -50,6 +53,7 @@ function setupFiltering(products) {
         : products.filter(product => product.category === category);
 
       renderProducts(filtered);
+      activateProductModals(); // <- ŠEIT NOTEIKTI PIEVIENO!
     });
   });
 }
