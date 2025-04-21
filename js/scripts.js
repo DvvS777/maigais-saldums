@@ -1,16 +1,15 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-  // Produktu dati tiek ielādēti no ārējā JSON faila
+  // Produktu ielāde
   fetch('data/products.json')
     .then(response => response.json())
     .then(data => {
       renderProducts(data);
       setupFiltering(data);
     })
-    .catch(error => {
-      console.error('Kļūda ielādējot produktus:', error);
-    });
+    .catch(error => console.error('Kļūda ielādējot produktus:', error));
 
+  // Produktu renderēšana
   function renderProducts(products) {
     const container = document.getElementById('product-list');
     container.innerHTML = '';
@@ -35,9 +34,10 @@ document.addEventListener('DOMContentLoaded', function () {
       container.appendChild(card);
     });
 
-    activateProductModals();
+    activateProductModals(); // pēc renderēšanas piesaisti pogām
   }
 
+  // Filtrēšanas funkcionalitāte
   function setupFiltering(products) {
     const buttons = document.querySelectorAll('.filter-btn');
 
@@ -49,37 +49,35 @@ document.addEventListener('DOMContentLoaded', function () {
         const category = button.getAttribute('data-category');
         const filtered = category === 'all'
           ? products
-          : products.filter(product => product.category === category);
+          : products.filter(p => p.category === category);
 
         renderProducts(filtered);
       });
     });
   }
 
+  // Atsauksmju ielāde
   fetch('data/testimonials.json')
     .then(response => response.json())
-    .then(data => {
-      renderTestimonials(data);
-    })
-    .catch(error => {
-      console.error('Kļūda ielādējot atsauksmes:', error);
-    });
+    .then(data => renderTestimonials(data))
+    .catch(error => console.error('Kļūda ielādējot atsauksmes:', error));
 
+  // Atsauksmju renderēšana
   function renderTestimonials(testimonials) {
     const container = document.getElementById('testimonial-slider');
     container.innerHTML = '';
 
-    testimonials.forEach(testimonial => {
+    testimonials.forEach(t => {
       const card = document.createElement('div');
       card.classList.add('testimonial');
 
-      const imageSrc = testimonial.image ? testimonial.image : 'images/testimonials/default.jpg';
+      const imgSrc = t.image ? t.image : 'images/testimonials/default.jpg';
 
       card.innerHTML = `
-        <img src="${imageSrc}" alt="${testimonial.name}">
-        <h4>${testimonial.name}</h4>
-        <div class="testimonial-rating">${getStars(testimonial.rating)}</div>
-        <p>"${testimonial.text}"</p>
+        <img src="${imgSrc}" alt="${t.name}">
+        <h4>${t.name}</h4>
+        <div class="testimonial-rating">${getStars(t.rating)}</div>
+        <p>"${t.text}"</p>
       `;
 
       container.appendChild(card);
@@ -87,18 +85,13 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function getStars(rating) {
-    const fullStar = '⭐';
-    const halfStar = '⭐️'.slice(0, 1);
-    const emptyStar = '☆';
-
     const full = Math.floor(rating);
     const half = rating % 1 >= 0.5 ? 1 : 0;
     const empty = 5 - full - half;
-
-    return fullStar.repeat(full) + (half ? halfStar : '') + emptyStar.repeat(empty);
+    return '⭐'.repeat(full) + (half ? '⭐️' : '') + '☆'.repeat(empty);
   }
 
-  // Atsauksmju slidera pogas
+  // Slidera pogas
   document.getElementById('prev-btn').addEventListener('click', () => {
     document.getElementById('testimonial-slider').scrollBy({ left: -320, behavior: 'smooth' });
   });
@@ -107,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('testimonial-slider').scrollBy({ left: 320, behavior: 'smooth' });
   });
 
-  // === MODĀLAIS PRODUKTA LOGS ===
+  // MODĀLAIS LOGS
   const modal = document.getElementById("product-modal");
   const modalImage = document.getElementById("modal-image");
   const modalTitle = document.getElementById("modal-title");
@@ -116,9 +109,38 @@ document.addEventListener('DOMContentLoaded', function () {
   const modalClose = document.getElementById("modal-close");
 
   function activateProductModals() {
-    const viewButtons = document.querySelectorAll(".view-btn");
+    const buttons = document.querySelectorAll(".view-btn");
 
-    viewButtons.forEach(button => {
-      button.addEventListener("click", () => {
-        const card = button.closest(".product-card");
-        const img = card.querySelector("
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const card = btn.closest(".product-card");
+        modalImage.src = card.querySelector("img").src;
+        modalTitle.textContent = card.querySelector("h3").textContent;
+        modalDescription.textContent = card.querySelector("p").textContent;
+        modalPrice.textContent = card.querySelector(".product-price").textContent;
+        modal.classList.remove("hidden");
+      });
+    });
+  }
+
+  modalClose.addEventListener("click", () => modal.classList.add("hidden"));
+  modal.addEventListener("click", e => {
+    if (e.target === modal) modal.classList.add("hidden");
+  });
+
+  // FORMAS POP-UP paziņojums
+  const orderForm = document.getElementById("order-form");
+  const popup = document.getElementById("form-popup");
+  const popupClose = document.getElementById("popup-close");
+
+  orderForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    popup.classList.remove("hidden");
+    orderForm.reset();
+  });
+
+  popupClose.addEventListener("click", () => {
+    popup.classList.add("hidden");
+  });
+
+});
