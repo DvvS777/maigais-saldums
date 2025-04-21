@@ -107,3 +107,45 @@ document.getElementById('prev-btn').addEventListener('click', () => {
 document.getElementById('next-btn').addEventListener('click', () => {
   document.getElementById('testimonial-slider').scrollBy({ left: 320, behavior: 'smooth' });
 });
+
+// ===== MODĀLAIS LOGS =====
+const modal = document.getElementById("product-modal");
+const modalImage = document.getElementById("modal-image");
+const modalTitle = document.getElementById("modal-title");
+const modalDescription = document.getElementById("modal-description");
+const modalPrice = document.getElementById("modal-price");
+const modalClose = document.getElementById("modal-close");
+
+// Funkcija, kas piesaista event listener katrai pogai "Apskatīt"
+function activateProductModals() {
+  const viewButtons = document.querySelectorAll(".view-btn");
+
+  viewButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      const card = button.closest(".product-card");
+      const img = card.querySelector("img").src;
+      const title = card.querySelector("h3").textContent;
+      const desc = card.querySelector("p").textContent;
+      const price = card.querySelector(".product-price").textContent;
+
+      modalImage.src = img;
+      modalTitle.textContent = title;
+      modalDescription.textContent = desc;
+      modalPrice.textContent = price;
+
+      modal.classList.remove("hidden");
+    });
+  });
+}
+
+// Aizvēršana ar X
+modalClose.addEventListener("click", () => {
+  modal.classList.add("hidden");
+});
+
+// Aizvēršana, spiežot ārpus modāļa
+modal.addEventListener("click", (e) => {
+  if (e.target === modal) {
+    modal.classList.add("hidden");
+  }
+});
