@@ -1,11 +1,7 @@
-// ==========================
-// DOMContentLoaded – sākotnējā ielāde
-// ==========================
 document.addEventListener('DOMContentLoaded', function () {
-
-  // ==========================
-  // Produktu ielāde no JSON
-  // ==========================
+  // ======================
+  // PRODUKTU IELĀDE UN ATTĒLOŠANA
+  // ======================
   fetch('data/products.json')
     .then(response => response.json())
     .then(data => {
@@ -14,9 +10,6 @@ document.addEventListener('DOMContentLoaded', function () {
     })
     .catch(error => console.error('Kļūda ielādējot produktus:', error));
 
-  // ==========================
-  // Funkcija: Produktu renderēšana HTML kartītēs
-  // ==========================
   function renderProducts(products) {
     const container = document.getElementById('product-list');
     container.innerHTML = '';
@@ -44,9 +37,6 @@ document.addEventListener('DOMContentLoaded', function () {
     activateProductModals();
   }
 
-  // ==========================
-  // Filtru loģika
-  // ==========================
   function setupFiltering(products) {
     const buttons = document.querySelectorAll('.filter-btn');
     buttons.forEach(button => {
@@ -64,17 +54,14 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // ==========================
-  // Atsauksmju ielāde no JSON
-  // ==========================
+  // ======================
+  // ATSAUKSMJU SLIDERIS
+  // ======================
   fetch('data/testimonials.json')
     .then(response => response.json())
     .then(data => renderTestimonials(data))
     .catch(error => console.error('Kļūda ielādējot atsauksmes:', error));
 
-  // ==========================
-  // Atsauksmju renderēšana
-  // ==========================
   function renderTestimonials(testimonials) {
     const container = document.getElementById('testimonial-slider');
     container.innerHTML = '';
@@ -96,9 +83,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // ==========================
-  // Palīgfunkcija: Zvaigzņu vizualizācija
-  // ==========================
   function getStars(rating) {
     const full = Math.floor(rating);
     const half = rating % 1 >= 0.5 ? 1 : 0;
@@ -106,9 +90,6 @@ document.addEventListener('DOMContentLoaded', function () {
     return '⭐'.repeat(full) + (half ? '⭐️' : '') + '☆'.repeat(empty);
   }
 
-  // ==========================
-  // Slider bultu darbība
-  // ==========================
   document.getElementById('prev-btn').addEventListener('click', () => {
     document.getElementById('testimonial-slider').scrollBy({ left: -320, behavior: 'smooth' });
   });
@@ -117,9 +98,9 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('testimonial-slider').scrollBy({ left: 320, behavior: 'smooth' });
   });
 
-  // ==========================
-  // MODĀLAIS LOGS (produkts)
-  // ==========================
+  // ======================
+  // MODĀLAIS LOGS AR PRODUKTU INFO
+  // ======================
   const modal = document.getElementById("product-modal");
   const modalImage = document.getElementById("modal-image");
   const modalTitle = document.getElementById("modal-title");
@@ -147,29 +128,34 @@ document.addEventListener('DOMContentLoaded', function () {
     if (e.target === modal) modal.classList.add("hidden");
   });
 
-  // ==========================
-  // PASŪTĪJUMA FORMA + POPUP
-  // ==========================
+  // ======================
+  // FORMAS PĀRVALDĪBA – GALVENĀ FORMA
+  // ======================
   const orderForm = document.getElementById("order-form");
   const popup = document.getElementById("form-popup");
   const popupClose = document.getElementById("popup-close");
 
-  orderForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    // (Paplašināma daļa – datu apstrāde nākotnē)
-    const name = orderForm.querySelector('input[type="text"]').value;
-    const email = orderForm.querySelector('input[type="email"]').value;
-    const message = orderForm.querySelector('textarea').value;
-
-    console.log("Pasūtījums:", { name, email, message });
-
-    popup.classList.remove("hidden");
-    orderForm.reset();
-  });
+  if (orderForm) {
+    orderForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      popup.classList.remove("hidden");
+      orderForm.reset();
+    });
+  }
 
   popupClose.addEventListener("click", () => {
     popup.classList.add("hidden");
   });
 
+  // ======================
+  // FORMAS PĀRVALDĪBA – MODĀLĀ LOGA FORMA
+  // ======================
+  const modalOrderBtn = document.getElementById("modal-order");
+
+  if (modalOrderBtn) {
+    modalOrderBtn.addEventListener("click", () => {
+      modal.classList.add("hidden");
+      popup.classList.remove("hidden");
+    });
+  }
 });
