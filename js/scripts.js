@@ -145,3 +145,23 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
 });
+
+// ===== Pasūtījuma formas paziņojums =====
+const orderForm = document.getElementById("order-form");
+const popup = document.getElementById("form-popup");
+const popupClose = document.getElementById("popup-close");
+
+orderForm.addEventListener("submit", (e) => {
+  e.preventDefault(); // novērš formu pārlādēt
+
+  // Šeit var pievienot datu apstrādi / nosūtīšanu uz serveri, ja vajag
+
+  popup.classList.remove("hidden");
+
+  // Notīrām formu pēc nosūtīšanas
+  orderForm.reset();
+});
+
+popupClose.addEventListener("click", () => {
+  popup.classList.add("hidden");
+});
