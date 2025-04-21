@@ -238,14 +238,12 @@ form button:hover {
   scroll-behavior: smooth;
   max-width: 960px;
   padding: 10px 0;
-
-  /* Scrollbar paslēpšana visos pārlūkos */
-  scrollbar-width: none;          /* Firefox */
-  -ms-overflow-style: none;       /* Internet Explorer / Edge */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .testimonial-slider::-webkit-scrollbar {
-  display: none;                  /* Chrome, Safari, Opera */
+  display: none;
 }
 
 .slider-btn {
@@ -365,33 +363,36 @@ footer {
   margin-bottom: 20px;
 }
 
-.form-popup {
+/* ======================== */
+/* PASŪTĪJUMA APSTIPRINĀJUMA POPUP */
+/* ======================== */
+.popup-message {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(60, 42, 33, 0.6);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1001;
+  bottom: 30px;
+  right: 30px;
+  background-color: #8B4513;
+  color: white;
+  padding: 16px 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  font-weight: bold;
+  font-size: 1rem;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 9999;
 }
 
-.form-popup.hidden {
-  display: none;
+.popup-message.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
 }
 
-.form-popup-content {
-  background: #fff8f0;
-  padding: 40px;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  font-size: 1.2rem;
-  max-width: 400px;
-}
-
+/* ======================== */
+/* ANIMĀCIJAS */
+/* ======================== */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(-20px); }
   to { opacity: 1; transform: translateY(0); }
