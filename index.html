@@ -11,7 +11,7 @@
 <body>
 
 <!-- ============================ -->
-<!-- Hero sadaļa ar filtriem -->
+<!-- Hero sadaļa ar filtru pogām -->
 <!-- ============================ -->
 <section class="hero-section">
   <div class="wave-background"></div>
@@ -25,17 +25,16 @@
       <button class="filter-btn" data-category="Riekstiņi">Riekstiņu cepumi</button>
     </div>
 
-    <!-- Pasūtījuma poga -->
-    <button id="open-order-form" class="view-btn">Veikt pasūtījumu</button>
+    <button id="open-order-modal" class="view-btn">Veikt pasūtījumu</button>
   </div>
 </section>
 
 <!-- ============================ -->
-<!-- Produktu sadaļa -->
+<!-- Produktu kartīšu sadaļa -->
 <!-- ============================ -->
 <section class="product-section">
   <div id="product-list" class="product-grid">
-    <!-- Produkti ielādēsies ar JS -->
+    <!-- Produkti ielādējas ar JS -->
   </div>
 </section>
 
@@ -61,7 +60,7 @@
 </footer>
 
 <!-- ============================ -->
-<!-- Produkta detalizēts logs -->
+<!-- Produkta detalizēts modālais logs -->
 <!-- ============================ -->
 <div id="product-modal" class="modal hidden">
   <div class="modal-content">
@@ -75,59 +74,36 @@
 </div>
 
 <!-- ============================ -->
-<!-- Pasūtījuma forma kā modālais logs -->
+<!-- MODĀLAIS PASŪTĪJUMA LOGS -->
 <!-- ============================ -->
 <div id="order-modal" class="modal hidden">
-  <div class="modal-content order-form-modal">
+  <div class="modal-content">
     <span id="order-modal-close" class="modal-close">&times;</span>
-    <h2>Pasūtījuma forma</h2>
+    <h3>Pasūtījuma forma</h3>
     <form id="order-form">
-      <div id="product-options"></div>
+      <div id="product-selection">
+        <!-- Dinamiskie produktu checkbox ielādējas šeit -->
+      </div>
 
-      <label for="delivery-date">Datums:</label>
-      <input type="date" id="delivery-date" name="delivery-date" required />
+      <label for="order-date">Datums, kad jābūt gatavam:</label>
+      <input type="date" id="order-date" name="date" required />
 
-      <label for="delivery-time">Laiks:</label>
-      <select id="delivery-time" name="delivery-time" required>
-        <option value="">Izvēlies laiku</option>
-        <option value="08:00">08:00</option>
-        <option value="08:30">08:30</option>
-        <option value="09:00">09:00</option>
-        <option value="09:30">09:30</option>
-        <option value="10:00">10:00</option>
-        <option value="10:30">10:30</option>
-        <option value="11:00">11:00</option>
-        <option value="11:30">11:30</option>
-        <option value="12:00">12:00</option>
-        <option value="12:30">12:30</option>
-        <option value="13:00">13:00</option>
-        <option value="13:30">13:30</option>
-        <option value="14:00">14:00</option>
-        <option value="14:30">14:30</option>
-        <option value="15:00">15:00</option>
-        <option value="15:30">15:30</option>
-        <option value="16:00">16:00</option>
-        <option value="16:30">16:30</option>
-        <option value="17:00">17:00</option>
-        <option value="17:30">17:30</option>
-        <option value="18:00">18:00</option>
-        <option value="18:30">18:30</option>
-        <option value="19:00">19:00</option>
-      </select>
+      <label for="order-time">Laiks (00 vai 30 min):</label>
+      <input type="time" id="order-time" name="time" step="1800" required />
 
-      <label for="contact">Telefons:</label>
-      <input type="tel" id="contact" name="contact" placeholder="Piemēram, +371 20000000" required />
+      <label for="order-phone">Telefons saziņai:</label>
+      <input type="tel" id="order-phone" name="phone" placeholder="26123456" pattern="[0-9]{8}" required />
 
-      <label for="comments">Papildu komentāri:</label>
-      <textarea id="comments" name="comments" placeholder="Papildu informācija..."></textarea>
+      <label for="order-comment">Papildus komentārs:</label>
+      <textarea id="order-comment" name="comment" rows="3" placeholder="Īpašas vēlmes, komentāri..."></textarea>
 
-      <button type="submit" class="view-btn">Apstiprināt pasūtījumu</button>
+      <button type="submit" class="view-btn">Nosūtīt pasūtījumu</button>
     </form>
   </div>
 </div>
 
 <!-- ============================ -->
-<!-- Paldies paziņojums -->
+<!-- Pop-up paziņojums pēc pasūtījuma -->
 <!-- ============================ -->
 <div id="form-popup" class="form-popup hidden">
   <div class="form-popup-content">
