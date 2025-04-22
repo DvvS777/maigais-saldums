@@ -1,15 +1,15 @@
+
 document.addEventListener('DOMContentLoaded', function () {
-  // ======================
-  // PRODUKTU IELĀDE UN ATTĒLOŠANA
-  // ======================
+  // ======== PRODUKTU IELĀDE ========
   fetch('data/products.json')
-    .then(response => response.json())
+    .then(res => res.json())
     .then(data => {
       renderProducts(data);
       setupFiltering(data);
-    })
-    .catch(error => console.error('Kļūda ielādējot produktus:', error));
+      generateProductSelection(data);
+    });
 
+  // ======== PRODUKTU ATTĒLOŠANA ========
   function renderProducts(products) {
     const container = document.getElementById('product-list');
     container.innerHTML = '';
@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
     activateProductModals();
   }
 
+  // ======== FILTRĒŠANAS POGAS ========
   function setupFiltering(products) {
     const buttons = document.querySelectorAll('.filter-btn');
     buttons.forEach(button => {
@@ -45,22 +46,16 @@ document.addEventListener('DOMContentLoaded', function () {
         button.classList.add('active');
 
         const category = button.getAttribute('data-category');
-        const filtered = category === 'all'
-          ? products
-          : products.filter(p => p.category === category);
-
+        const filtered = category === 'all' ? products : products.filter(p => p.category === category);
         renderProducts(filtered);
       });
     });
   }
 
-  // ======================
-  // ATSAUKSMJU SLIDERIS
-  // ======================
+  // ======== ATSAUKSMES ========
   fetch('data/testimonials.json')
-    .then(response => response.json())
-    .then(data => renderTestimonials(data))
-    .catch(error => console.error('Kļūda ielādējot atsauksmes:', error));
+    .then(res => res.json())
+    .then(renderTestimonials);
 
   function renderTestimonials(testimonials) {
     const container = document.getElementById('testimonial-slider');
@@ -69,16 +64,13 @@ document.addEventListener('DOMContentLoaded', function () {
     testimonials.forEach(t => {
       const card = document.createElement('div');
       card.classList.add('testimonial');
-
-      const imgSrc = t.image ? t.image : 'images/testimonials/default.jpg';
-
+      const img = t.image ? t.image : 'images/testimonials/default.jpg';
       card.innerHTML = `
-        <img src="${imgSrc}" alt="${t.name}">
+        <img src="${img}" alt="${t.name}">
         <h4>${t.name}</h4>
         <div class="testimonial-rating">${getStars(t.rating)}</div>
         <p>"${t.text}"</p>
       `;
-
       container.appendChild(card);
     });
   }
@@ -93,14 +85,11 @@ document.addEventListener('DOMContentLoaded', function () {
   document.getElementById('prev-btn').addEventListener('click', () => {
     document.getElementById('testimonial-slider').scrollBy({ left: -320, behavior: 'smooth' });
   });
-
   document.getElementById('next-btn').addEventListener('click', () => {
     document.getElementById('testimonial-slider').scrollBy({ left: 320, behavior: 'smooth' });
   });
 
-  // ======================
-  // MODĀLAIS LOGS AR PRODUKTU INFO
-  // ======================
+  // ======== PRODUKTU MODĀLIS ========
   const modal = document.getElementById("product-modal");
   const modalImage = document.getElementById("modal-image");
   const modalTitle = document.getElementById("modal-title");
@@ -109,11 +98,11 @@ document.addEventListener('DOMContentLoaded', function () {
   const modalClose = document.getElementById("modal-close");
 
   function activateProductModals() {
-    const buttons = document.querySelectorAll(".view-btn");
+    const viewButtons = document.querySelectorAll(".view-btn");
 
-    buttons.forEach(btn => {
-      btn.addEventListener("click", () => {
-        const card = btn.closest(".product-card");
+    viewButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        const card = button.closest(".product-card");
         modalImage.src = card.querySelector("img").src;
         modalTitle.textContent = card.querySelector("h3").textContent;
         modalDescription.textContent = card.querySelector("p").textContent;
@@ -124,38 +113,92 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   modalClose.addEventListener("click", () => modal.classList.add("hidden"));
-  modal.addEventListener("click", (e) => {
+  modal.addEventListener("click", e => {
     if (e.target === modal) modal.classList.add("hidden");
   });
 
-  // ======================
-  // FORMAS PĀRVALDĪBA – GALVENĀ FORMA
-  // ======================
-  const orderForm = document.getElementById("order-form");
+  // ======== PASŪTĪJUMA FORMAS MODĀLIS ========
+  const orderModal = document.getElementById("order-modal");
+  const orderModalClose = document.getElementById("order-modal-close");
+  const orderBtn = document.getElementById("open-order-modal");
+  const modalOrderBtn = document.getElementById("modal-order");
+
+  orderBtn.addEventListener("click", () => {
+    orderModal.classList.remove("hidden");
+  });
+
+  modalOrderBtn.addEventListener("click", () => {
+    modal.classList.add("hidden");
+    orderModal.classList.remove("hidden");
+  });
+
+  orderModalClose.addEventListener("click", () => {
+    orderModal.classList.add("hidden");
+  });
+
+  orderModal.addEventListener("click", e => {
+    if (e.target === orderModal) orderModal.classList.add("hidden");
+  });
+
+  // ======== PRODUKTU IZVĒLE FORMĀ ========
+  function generateProductSelection(products) {
+    const container = document.getElementById('product-selection');
+    container.innerHTML = '<h4>Izvēlieties produktus un daudzumu:</h4>';
+
+    products.forEach(product => {
+      const item = document.createElement('div');
+      item.innerHTML = `
+        <label>
+          <input type="checkbox" name="product" value="${product.name}" />
+          ${product.name}
+        </label>
+        <input type="number" name="quantity-${product.name}" min="1" max="99" placeholder="Daudzums" style="width: 80px; margin-left: 10px;" />
+      `;
+      container.appendChild(item);
+    });
+  }
+
+  // ======== FORMAS APSTRĀDE ========
+  const form = document.getElementById("order-form");
   const popup = document.getElementById("form-popup");
   const popupClose = document.getElementById("popup-close");
 
-  if (orderForm) {
-    orderForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      popup.classList.remove("hidden");
-      orderForm.reset();
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    // Datu apkopošana
+    const selectedProducts = [];
+    form.querySelectorAll('input[name="product"]:checked').forEach(input => {
+      const name = input.value;
+      const qtyInput = form.querySelector(`input[name="quantity-${name}"]`);
+      const qty = qtyInput ? qtyInput.value : '1';
+      selectedProducts.push(`${name} (${qty} gab.)`);
     });
-  }
+
+    const date = document.getElementById("order-date").value;
+    const time = document.getElementById("order-time").value;
+    const phone = document.getElementById("order-phone").value;
+    const comment = document.getElementById("order-comment").value;
+
+    const message = `
+🧁 JAUNS PASŪTĪJUMS:
+📦 Produkti: ${selectedProducts.join(', ')}
+📅 Datums: ${date}
+⏰ Laiks: ${time}
+📞 Telefons: ${phone}
+💬 Komentārs: ${comment}
+    `;
+
+    // Nosūtīt uz Telegram (šeit jāpievieno fetch uz jūsu API)
+    console.log(message);
+
+    // Tīrīšana
+    form.reset();
+    orderModal.classList.add("hidden");
+    popup.classList.remove("hidden");
+  });
 
   popupClose.addEventListener("click", () => {
     popup.classList.add("hidden");
   });
-
-  // ======================
-  // FORMAS PĀRVALDĪBA – MODĀLĀ LOGA FORMA
-  // ======================
-  const modalOrderBtn = document.getElementById("modal-order");
-
-  if (modalOrderBtn) {
-    modalOrderBtn.addEventListener("click", () => {
-      modal.classList.add("hidden");
-      popup.classList.remove("hidden");
-    });
-  }
 });
