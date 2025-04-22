@@ -23,67 +23,21 @@
       <button class="filter-btn" data-category="Torte">Tortes</button>
       <button class="filter-btn" data-category="Riekstiņi">Riekstiņu cepumi</button>
     </div>
+    <button id="main-order-btn" class="view-btn">Veikt pasūtījumu</button>
   </div>
 </section>
 
 <!-- ============================ -->
-<!-- Produktu karšu sadaļa (JS ielādē) -->
+<!-- Produktu kartīšu sadaļa -->
 <!-- ============================ -->
 <section class="product-section">
   <div id="product-list" class="product-grid">
-    <!-- Produkti ielādējas dinamiski -->
+    <!-- Produkti ielādēsies ar JS -->
   </div>
 </section>
 
 <!-- ============================ -->
-<!-- Pasūtījuma forma -->
-<!-- ============================ -->
-<section id="order">
-  <h2>Pasūtīt</h2>
-  <form id="order-form">
-    <!-- Vārds -->
-    <input type="text" name="name" placeholder="Vārds" required />
-
-    <!-- Telefona numurs -->
-    <input type="tel" name="phone" placeholder="Telefons (piem. +37112345678)" required pattern="^\+371\d{8}$" />
-
-    <!-- Produktu izvēle -->
-    <div id="product-selection">
-      <h3>Izvēlies produktus:</h3>
-      <div class="product-option">
-        <label><input type="checkbox" name="product" value="Šokolādes sapņa torte" /> Šokolādes sapņa torte</label>
-        <input type="number" name="quantity-Šokolādes sapņa torte" min="1" placeholder="Daudzums" />
-      </div>
-      <div class="product-option">
-        <label><input type="checkbox" name="product" value="Napoleona torte" /> Napoleona torte</label>
-        <input type="number" name="quantity-Napoleona torte" min="1" placeholder="Daudzums" />
-      </div>
-      <div class="product-option">
-        <label><input type="checkbox" name="product" value="Piena maiguma torte" /> Piena maiguma torte</label>
-        <input type="number" name="quantity-Piena maiguma torte" min="1" placeholder="Daudzums" />
-      </div>
-      <div class="product-option">
-        <label><input type="checkbox" name="product" value="Krāsainie riekstiņu cepumi" /> Krāsainie riekstiņu cepumi</label>
-        <input type="number" name="quantity-Krāsainie riekstiņu cepumi" min="1" placeholder="Daudzums" />
-      </div>
-    </div>
-
-    <!-- Papildkomentāri -->
-    <textarea name="comments" placeholder="Papildkomentāri..."></textarea>
-
-    <!-- Datuma izvēle -->
-    <input type="date" name="date" required />
-
-    <!-- Laika izvēle 24h formātā, pa 30 min -->
-    <input type="time" name="time" step="1800" required />
-
-    <!-- Iesniegt poga -->
-    <button type="submit">Nosūtīt</button>
-  </form>
-</section>
-
-<!-- ============================ -->
-<!-- Atsauksmju karuselis -->
+<!-- Atsauksmju sadaļa -->
 <!-- ============================ -->
 <section id="testimonials">
   <h2>Atsauksmes</h2>
@@ -104,7 +58,7 @@
 </footer>
 
 <!-- ============================ -->
-<!-- Produkta detalizēts modālais logs -->
+<!-- Detalizētā produkta skatījums -->
 <!-- ============================ -->
 <div id="product-modal" class="modal hidden">
   <div class="modal-content">
@@ -118,12 +72,30 @@
 </div>
 
 <!-- ============================ -->
-<!-- Pop-up paziņojums pēc pasūtījuma -->
+<!-- Pop-up pēc pasūtījuma -->
 <!-- ============================ -->
 <div id="form-popup" class="form-popup hidden">
   <div class="form-popup-content">
     <p>Paldies! Jūsu pasūtījums ir saņemts.</p>
     <button id="popup-close" class="view-btn">Aizvērt</button>
+  </div>
+</div>
+
+<!-- ============================ -->
+<!-- MODĀLAIS: Pasūtījuma forma -->
+<!-- ============================ -->
+<div id="order-modal" class="modal hidden">
+  <div class="modal-content large-modal">
+    <span id="order-modal-close" class="modal-close">&times;</span>
+    <h2>Veiciet savu pasūtījumu</h2>
+    <form id="order-form">
+      <div id="product-selection-container"></div>
+      <textarea placeholder="Papildus komentāri (neobligāti)"></textarea>
+      <input type="text" placeholder="Telefons (piem. +37112345678)" required />
+      <input type="date" required />
+      <input type="time" step="1800" required />
+      <button type="submit">Nosūtīt</button>
+    </form>
   </div>
 </div>
 
