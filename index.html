@@ -11,24 +11,27 @@
 <body>
 
 <!-- ============================ -->
-<!-- Hero sadaļa ar filtru pogām -->
+<!-- Hero sadaļa ar filtriem -->
 <!-- ============================ -->
 <section class="hero-section">
   <div class="wave-background"></div>
   <div class="hero-content">
     <h2>Mūsu īpašie piedāvājumi</h2>
     <p>Katrs mūsu saldums ir radīts ar mīlestību un rūpēm, lai sniegtu jums neaizmirstamu garšas piedzīvojumu.</p>
+
     <div class="filter-buttons">
       <button class="filter-btn active" data-category="all">Visi produkti</button>
       <button class="filter-btn" data-category="Torte">Tortes</button>
       <button class="filter-btn" data-category="Riekstiņi">Riekstiņu cepumi</button>
     </div>
-    <button id="main-order-btn" class="view-btn">Veikt pasūtījumu</button>
+
+    <!-- Pasūtījuma poga -->
+    <button id="open-order-form" class="view-btn">Veikt pasūtījumu</button>
   </div>
 </section>
 
 <!-- ============================ -->
-<!-- Produktu kartīšu sadaļa -->
+<!-- Produktu sadaļa -->
 <!-- ============================ -->
 <section class="product-section">
   <div id="product-list" class="product-grid">
@@ -37,7 +40,7 @@
 </section>
 
 <!-- ============================ -->
-<!-- Atsauksmju sadaļa -->
+<!-- Atsauksmju karuselis -->
 <!-- ============================ -->
 <section id="testimonials">
   <h2>Atsauksmes</h2>
@@ -58,7 +61,7 @@
 </footer>
 
 <!-- ============================ -->
-<!-- Detalizētā produkta skatījums -->
+<!-- Produkta detalizēts logs -->
 <!-- ============================ -->
 <div id="product-modal" class="modal hidden">
   <div class="modal-content">
@@ -72,30 +75,64 @@
 </div>
 
 <!-- ============================ -->
-<!-- Pop-up pēc pasūtījuma -->
+<!-- Pasūtījuma forma kā modālais logs -->
+<!-- ============================ -->
+<div id="order-modal" class="modal hidden">
+  <div class="modal-content order-form-modal">
+    <span id="order-modal-close" class="modal-close">&times;</span>
+    <h2>Pasūtījuma forma</h2>
+    <form id="order-form">
+      <div id="product-options"></div>
+
+      <label for="delivery-date">Datums:</label>
+      <input type="date" id="delivery-date" name="delivery-date" required />
+
+      <label for="delivery-time">Laiks:</label>
+      <select id="delivery-time" name="delivery-time" required>
+        <option value="">Izvēlies laiku</option>
+        <option value="08:00">08:00</option>
+        <option value="08:30">08:30</option>
+        <option value="09:00">09:00</option>
+        <option value="09:30">09:30</option>
+        <option value="10:00">10:00</option>
+        <option value="10:30">10:30</option>
+        <option value="11:00">11:00</option>
+        <option value="11:30">11:30</option>
+        <option value="12:00">12:00</option>
+        <option value="12:30">12:30</option>
+        <option value="13:00">13:00</option>
+        <option value="13:30">13:30</option>
+        <option value="14:00">14:00</option>
+        <option value="14:30">14:30</option>
+        <option value="15:00">15:00</option>
+        <option value="15:30">15:30</option>
+        <option value="16:00">16:00</option>
+        <option value="16:30">16:30</option>
+        <option value="17:00">17:00</option>
+        <option value="17:30">17:30</option>
+        <option value="18:00">18:00</option>
+        <option value="18:30">18:30</option>
+        <option value="19:00">19:00</option>
+      </select>
+
+      <label for="contact">Telefons:</label>
+      <input type="tel" id="contact" name="contact" placeholder="Piemēram, +371 20000000" required />
+
+      <label for="comments">Papildu komentāri:</label>
+      <textarea id="comments" name="comments" placeholder="Papildu informācija..."></textarea>
+
+      <button type="submit" class="view-btn">Apstiprināt pasūtījumu</button>
+    </form>
+  </div>
+</div>
+
+<!-- ============================ -->
+<!-- Paldies paziņojums -->
 <!-- ============================ -->
 <div id="form-popup" class="form-popup hidden">
   <div class="form-popup-content">
     <p>Paldies! Jūsu pasūtījums ir saņemts.</p>
     <button id="popup-close" class="view-btn">Aizvērt</button>
-  </div>
-</div>
-
-<!-- ============================ -->
-<!-- MODĀLAIS: Pasūtījuma forma -->
-<!-- ============================ -->
-<div id="order-modal" class="modal hidden">
-  <div class="modal-content large-modal">
-    <span id="order-modal-close" class="modal-close">&times;</span>
-    <h2>Veiciet savu pasūtījumu</h2>
-    <form id="order-form">
-      <div id="product-selection-container"></div>
-      <textarea placeholder="Papildus komentāri (neobligāti)"></textarea>
-      <input type="text" placeholder="Telefons (piem. +37112345678)" required />
-      <input type="date" required />
-      <input type="time" step="1800" required />
-      <button type="submit">Nosūtīt</button>
-    </form>
   </div>
 </div>
 
