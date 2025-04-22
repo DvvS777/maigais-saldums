@@ -18,7 +18,6 @@
   <div class="hero-content">
     <h2>Mūsu īpašie piedāvājumi</h2>
     <p>Katrs mūsu saldums ir radīts ar mīlestību un rūpēm, lai sniegtu jums neaizmirstamu garšas piedzīvojumu.</p>
-
     <div class="filter-buttons">
       <button class="filter-btn active" data-category="all">Visi produkti</button>
       <button class="filter-btn" data-category="Torte">Tortes</button>
@@ -28,25 +27,57 @@
 </section>
 
 <!-- ============================ -->
-<!-- Produktu kartīšu sadaļa -->
+<!-- Produktu karšu sadaļa (JS ielādē) -->
 <!-- ============================ -->
 <section class="product-section">
   <div id="product-list" class="product-grid">
-    <!-- Produkti ielādējas ar JS -->
+    <!-- Produkti ielādējas dinamiski -->
   </div>
 </section>
 
 <!-- ============================ -->
-<!-- Galvenā pasūtījuma forma -->
+<!-- Pasūtījuma forma -->
 <!-- ============================ -->
 <section id="order">
   <h2>Pasūtīt</h2>
   <form id="order-form">
-    <input type="text" id="orderName" placeholder="Vārds" required />
-    <input type="tel" id="orderPhone" placeholder="Telefons (piem. +37112345678)" pattern="^\+371[0-9]{8}$" required />
-    <textarea id="orderMessage" placeholder="Jūsu pasūtījums" required></textarea>
-    <input type="date" id="orderDate" required />
-    <input type="time" id="orderTime" step="1800" required />
+    <!-- Vārds -->
+    <input type="text" name="name" placeholder="Vārds" required />
+
+    <!-- Telefona numurs -->
+    <input type="tel" name="phone" placeholder="Telefons (piem. +37112345678)" required pattern="^\+371\d{8}$" />
+
+    <!-- Produktu izvēle -->
+    <div id="product-selection">
+      <h3>Izvēlies produktus:</h3>
+      <div class="product-option">
+        <label><input type="checkbox" name="product" value="Šokolādes sapņa torte" /> Šokolādes sapņa torte</label>
+        <input type="number" name="quantity-Šokolādes sapņa torte" min="1" placeholder="Daudzums" />
+      </div>
+      <div class="product-option">
+        <label><input type="checkbox" name="product" value="Napoleona torte" /> Napoleona torte</label>
+        <input type="number" name="quantity-Napoleona torte" min="1" placeholder="Daudzums" />
+      </div>
+      <div class="product-option">
+        <label><input type="checkbox" name="product" value="Piena maiguma torte" /> Piena maiguma torte</label>
+        <input type="number" name="quantity-Piena maiguma torte" min="1" placeholder="Daudzums" />
+      </div>
+      <div class="product-option">
+        <label><input type="checkbox" name="product" value="Krāsainie riekstiņu cepumi" /> Krāsainie riekstiņu cepumi</label>
+        <input type="number" name="quantity-Krāsainie riekstiņu cepumi" min="1" placeholder="Daudzums" />
+      </div>
+    </div>
+
+    <!-- Papildkomentāri -->
+    <textarea name="comments" placeholder="Papildkomentāri..."></textarea>
+
+    <!-- Datuma izvēle -->
+    <input type="date" name="date" required />
+
+    <!-- Laika izvēle 24h formātā, pa 30 min -->
+    <input type="time" name="time" step="1800" required />
+
+    <!-- Iesniegt poga -->
     <button type="submit">Nosūtīt</button>
   </form>
 </section>
