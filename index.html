@@ -42,9 +42,16 @@
 <section id="order">
   <h2>Pasūtīt</h2>
   <form id="order-form">
-    <input type="text" placeholder="Vārds" required />
-    <input type="email" placeholder="E-pasts" required />
-    <textarea placeholder="Jūsu pasūtījums" required></textarea>
+    <input type="text" id="name" placeholder="Vārds" required />
+    <input type="email" id="email" placeholder="E-pasts" required />
+    <textarea id="orderText" placeholder="Jūsu pasūtījums" required></textarea>
+
+    <!-- Jaunais ievades lauks: datums -->
+    <input type="date" id="orderDate" required />
+
+    <!-- Jaunais ievades lauks: laiks -->
+    <input type="time" id="orderTime" required />
+
     <button type="submit">Nosūtīt</button>
   </form>
 </section>
