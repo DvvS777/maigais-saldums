@@ -1,5 +1,5 @@
 /* ======================== */
-/* FONTI UN PAMATKRĀSAS */
+/* PAMATA STILS */
 /* ======================== */
 body {
   margin: 0;
@@ -8,14 +8,19 @@ body {
   color: #3e2723;
 }
 
+h2 {
+  text-align: center;
+  margin-top: 2rem;
+}
+
 /* ======================== */
 /* HERO SEKCIJA */
 /* ======================== */
 .hero-section {
   position: relative;
   background: linear-gradient(rgba(255,248,240,0.8), rgba(255,248,240,0.95));
-  text-align: center;
   padding: 100px 20px 80px;
+  text-align: center;
   overflow: hidden;
 }
 
@@ -34,29 +39,15 @@ body {
   position: relative;
   z-index: 1;
   max-width: 800px;
-  margin: 0 auto;
+  margin: auto;
 }
 
-.hero-content h2 {
-  font-size: 2.5rem;
-  color: #8B4513;
-  margin-bottom: 1rem;
-}
-
-.hero-content p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-}
-
-/* ======================== */
-/* FILTRA POGAS */
-/* ======================== */
 .filter-buttons {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
   gap: 12px;
-  margin-bottom: 30px;
+  flex-wrap: wrap;
+  margin-top: 20px;
 }
 
 .filter-btn {
@@ -69,243 +60,172 @@ body {
   cursor: pointer;
   transition: all 0.3s ease;
 }
-
 .filter-btn.active {
   background-color: #8B4513;
   color: white;
 }
 
-.filter-btn:hover {
-  background-color: #F5B7B1;
-  color: #3e2723;
-}
-
 /* ======================== */
 /* PRODUKTU KARTĪTES */
 /* ======================== */
-.product-section {
-  padding: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
 .product-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 32px;
+  gap: 24px;
+  padding: 40px 20px;
 }
 
 .product-card {
   width: 280px;
-  background-color: white;
-  border-radius: 12px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
   display: flex;
   flex-direction: column;
-}
-
-.product-card:hover {
-  transform: translateY(-5px);
 }
 
 .product-image-wrapper {
   width: 100%;
   aspect-ratio: 4 / 3;
   overflow: hidden;
-  background-color: #fefefe;
 }
 
 .product-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
 }
 
 .product-info {
   padding: 20px;
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
-}
-
-.product-info h3 {
-  margin: 0 0 10px;
-  color: #8B4513;
-  font-size: 1.2rem;
-}
-
-.product-info p {
-  font-size: 0.95rem;
-  color: #555;
-  flex-grow: 1;
 }
 
 .product-price {
-  font-weight: bold;
   color: #8B4513;
-  margin-top: 12px;
-  font-size: 1.1rem;
+  font-weight: bold;
+  margin-top: auto;
 }
 
 .view-btn {
-  margin-top: 16px;
-  padding: 10px;
+  margin-top: 12px;
   background-color: #8B4513;
   color: white;
+  padding: 10px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
   font-weight: bold;
-  transition: background-color 0.2s ease;
-}
-
-.view-btn:hover {
-  background-color: #6a320f;
 }
 
 /* ======================== */
-/* MODĀLAIS LOGS */
+/* MODĀLIE LOGI */
 /* ======================== */
-.modal {
+.modal, .form-popup, .order-modal {
   position: fixed;
-  inset: 0;
-  background-color: rgba(0,0,0,0.6);
+  top: 0;
+  left: 0;
+  right:0;
+  bottom: 0;
+  background: rgba(0,0,0,0.6);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
 }
-
-.modal.hidden {
-  display: none;
-}
-
-.modal-content {
-  background-color: #fff8f0;
-  padding: 30px;
-  border-radius: 12px;
-  width: 90%;
-  max-width: 600px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-  text-align: center;
-  position: relative;
-  animation: fadeIn 0.3s ease-in-out;
-}
-
-.modal-close {
-  position: absolute;
-  top: 12px;
-  right: 20px;
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #8B4513;
-  cursor: pointer;
-}
-
-.modal h3 {
-  font-size: 1.4rem;
-  color: #8B4513;
-  margin-bottom: 10px;
-}
-
-.modal p {
-  margin: 10px 0;
-}
-
-.modal-price {
-  font-weight: bold;
-  color: #8B4513;
-  font-size: 1.1rem;
-  margin-bottom: 20px;
-}
-
-.modal-image {
-  width: 100%;
-  max-height: 300px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 20px;
-}
-
-/* ======================== */
-/* PASŪTĪJUMA MODĀLA FORMA */
-/* ======================== */
-.order-modal {
-  position: fixed;
-  inset: 0;
-  background: rgba(60, 42, 33, 0.6);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1001;
-}
-
+.modal.hidden,
+.form-popup.hidden,
 .order-modal.hidden {
   display: none;
 }
 
-.order-modal-content {
-  background: #fff8f0;
-  padding: 40px;
+.modal-content, .form-popup-content, .order-modal-content {
+  background-color: #fff8f0;
+  padding: 30px;
   border-radius: 12px;
+  width: 90%;
   max-width: 500px;
-  width: 100%;
   text-align: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  font-size: 1rem;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+.modal-close, .order-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: #8B4513;
+}
+
+/* ======================== */
+/* PASŪTĪJUMA MODĀLĀ FORMA */
+/* ======================== */
+.order-modal-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .order-modal-content input,
-.order-modal-content select,
-.order-modal-content textarea {
-  width: 100%;
-  padding: 12px;
-  margin: 10px 0;
+.order-modal-content textarea,
+.order-modal-content select {
+  padding: 10px;
   border: 1px solid #ccc;
   border-radius: 6px;
   font-size: 1rem;
+  width: 100%;
 }
 
-.order-modal-content button {
-  margin-top: 12px;
-  padding: 12px;
-  background-color: #8B4513;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.order-modal-content button:hover {
-  background-color: #6d3710;
-}
-
-.order-checkboxes {
-  display: flex;
-  flex-direction: column;
+#product-selection {
   text-align: left;
-  max-height: 200px;
-  overflow-y: auto;
-  margin-bottom: 12px;
+  margin-top: 20px;
+}
+#product-selection label {
+  display: inline-block;
+  margin-right: 10px;
 }
 
-.order-checkboxes label {
+/* ======================== */
+/* ATSAUKSMES */
+/* ======================== */
+.testimonial-slider-wrapper {
   display: flex;
   align-items: center;
-  margin-bottom: 6px;
-  gap: 6px;
+  justify-content: center;
+  gap: 10px;
+  padding: 40px 0;
+  max-width: 100%;
+  overflow: hidden;
+}
+.testimonial-slider {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+.testimonial {
+  background-color: white;
+  border-left: 5px solid #F5B7B1;
+  padding: 20px;
+  border-radius: 10px;
+  min-width: 250px;
 }
 
 /* ======================== */
-/* ANIMĀCIJAS */
+/* POPUP PĒC PASŪTĪJUMA */
 /* ======================== */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
+.form-popup-content p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.view-btn:hover {
+  background-color: #6a320f;
 }
