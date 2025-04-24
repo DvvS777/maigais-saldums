@@ -115,25 +115,25 @@ button:hover {
   border-radius: 6px;
 }
 
-/* ============================== */
-/* Atsauksmju karuselis           */
-/* ============================== */
+/* ============================ */
+/*         Atsauksmes          */
+/* ============================ */
+
 #testimonials {
   padding: 40px 20px;
+  text-align: center;
 }
 
 .testimonial-slider-wrapper {
   position: relative;
   max-width: 960px;
   margin: auto;
-  overflow: hidden;
+  overflow: hidden; /* <- svarīgi, lai nerādītu skrolbāru */
 }
 
 .testimonial-slider {
   display: flex;
   gap: 20px;
-  padding: 20px 0;
-  transform: translateX(0);
   transition: transform 0.5s ease;
 }
 
@@ -142,18 +142,22 @@ button:hover {
   border-radius: 12px;
   padding: 20px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  min-width: 280px;
-  max-width: 280px;
+  width: 280px;  /* mazāks platums */
   flex: 0 0 auto;
   text-align: center;
 }
 
 .testimonial img {
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 10px;
+}
+
+.testimonial-rating {
+  margin: 8px 0;
+  font-size: 20px;
 }
 
 .slider-btn {
