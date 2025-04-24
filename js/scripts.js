@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', function () {
   // ======== PRODUKTU IELĀDE ========
   fetch('data/products.json')
@@ -37,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
     activateProductModals();
   }
 
-  // ======== FILTRĒŠANAS POGAS ========
+  // ======== FILTRĒŠANA ========
   function setupFiltering(products) {
     const buttons = document.querySelectorAll('.filter-btn');
     buttons.forEach(button => {
@@ -127,7 +126,7 @@ document.addEventListener('DOMContentLoaded', function () {
     orderModal.classList.remove("hidden");
   });
 
-  modalOrderBtn.addEventListener("click", () => {
+  modalOrderBtn?.addEventListener("click", () => {
     modal.classList.add("hidden");
     orderModal.classList.remove("hidden");
   });
@@ -166,12 +165,11 @@ document.addEventListener('DOMContentLoaded', function () {
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    // Datu apkopošana
     const selectedProducts = [];
     form.querySelectorAll('input[name="product"]:checked').forEach(input => {
       const name = input.value;
       const qtyInput = form.querySelector(`input[name="quantity-${name}"]`);
-      const qty = qtyInput ? qtyInput.value : '1';
+      const qty = qtyInput?.value || '1';
       selectedProducts.push(`${name} (${qty} gab.)`);
     });
 
@@ -179,6 +177,13 @@ document.addEventListener('DOMContentLoaded', function () {
     const time = document.getElementById("order-time").value;
     const phone = document.getElementById("order-phone").value;
     const comment = document.getElementById("order-comment").value;
+
+    // Validēt laiku uz 00 vai 30
+    const [hour, minutes] = time.split(':');
+    if (!['00', '30'].includes(minutes)) {
+      alert("Lūdzu izvēlies laiku tikai ar 00 vai 30 minūtēm!");
+      return;
+    }
 
     const message = `
 🧁 JAUNS PASŪTĪJUMS:
@@ -189,10 +194,8 @@ document.addEventListener('DOMContentLoaded', function () {
 💬 Komentārs: ${comment}
     `;
 
-    // Nosūtīt uz Telegram (šeit jāpievieno fetch uz jūsu API)
-    console.log(message);
+    console.log(message); // <- Te ievietosi fetch uz Telegram
 
-    // Tīrīšana
     form.reset();
     orderModal.classList.add("hidden");
     popup.classList.remove("hidden");
