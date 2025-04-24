@@ -1,94 +1,87 @@
-/* ======================== */
-/* PAMATA STILS */
-/* ======================== */
+
+/* Pamatstils */
 body {
-  margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background-color: #fff8f0;
-  color: #3e2723;
+  margin: 0;
+  background-color: #fff5eb;
+  color: #3e1f0d;
 }
 
 h2 {
   text-align: center;
-  margin-top: 2rem;
+  margin-top: 30px;
 }
 
-/* ======================== */
-/* HERO SEKCIJA */
-/* ======================== */
+button {
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+/* Hero sekcija */
 .hero-section {
-  position: relative;
-  background: linear-gradient(rgba(255,248,240,0.8), rgba(255,248,240,0.95));
-  padding: 100px 20px 80px;
   text-align: center;
-  overflow: hidden;
+  padding: 60px 20px 20px;
+  position: relative;
 }
 
 .wave-background {
   position: absolute;
   top: 0;
-  left: 0;
   width: 100%;
-  height: 120px;
-  background: url('https://www.svgrepo.com/show/310920/wave.svg') no-repeat top center;
+  height: 160px;
+  background: url('../images/wave.svg') no-repeat center top;
   background-size: cover;
-  z-index: 0;
 }
 
 .hero-content {
   position: relative;
   z-index: 1;
-  max-width: 800px;
-  margin: auto;
 }
 
 .filter-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  flex-wrap: wrap;
   margin-top: 20px;
 }
 
 .filter-btn {
-  padding: 10px 20px;
-  border: 2px solid #8B4513;
-  background-color: white;
-  color: #8B4513;
-  font-weight: bold;
-  border-radius: 25px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-.filter-btn.active {
-  background-color: #8B4513;
+  padding: 8px 16px;
+  margin: 0 4px;
+  border: none;
+  background-color: #8b4513;
   color: white;
+  border-radius: 20px;
 }
 
-/* ======================== */
-/* PRODUKTU KARTĪTES */
-/* ======================== */
+.filter-btn.active {
+  background-color: #c16e27;
+}
+
+/* Produktu kartītes */
 .product-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 24px;
-  padding: 40px 20px;
+  padding: 20px;
+  gap: 20px;
 }
 
 .product-card {
-  width: 280px;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   overflow: hidden;
+  width: 260px;
   display: flex;
   flex-direction: column;
 }
 
 .product-image-wrapper {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  height: 180px;
   overflow: hidden;
 }
 
@@ -99,133 +92,163 @@ h2 {
 }
 
 .product-info {
-  padding: 20px;
+  padding: 16px;
   flex-grow: 1;
-  display: flex;
-  flex-direction: column;
 }
 
 .product-price {
-  color: #8B4513;
   font-weight: bold;
-  margin-top: auto;
+  margin: 8px 0;
 }
 
 .view-btn {
-  margin-top: 12px;
-  background-color: #8B4513;
+  background-color: #8b4513;
   color: white;
-  padding: 10px;
   border: none;
+  padding: 10px;
+  width: 100%;
   border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
 }
 
-/* ======================== */
-/* MODĀLIE LOGI */
-/* ======================== */
-.modal, .form-popup, .order-modal {
+/* Atsauksmes */
+#testimonials {
+  padding: 40px 20px;
+}
+
+.testimonial-slider-wrapper {
+  position: relative;
+  overflow: hidden;
+  max-width: 960px;
+  margin: auto;
+}
+
+.testimonial-slider {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 20px 0;
+}
+
+.testimonial {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  min-width: 240px;
+  flex: 0 0 auto;
+  text-align: center;
+}
+
+.testimonial img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #8b4513;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+#prev-btn {
+  left: -10px;
+}
+
+#next-btn {
+  right: -10px;
+}
+
+/* Modal logi */
+.modal,
+.form-popup {
   position: fixed;
   top: 0;
   left: 0;
-  right:0;
-  bottom: 0;
-  background: rgba(0,0,0,0.6);
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
   display: flex;
-  justify-content: center;
   align-items: center;
-  z-index: 1000;
-}
-.modal.hidden,
-.form-popup.hidden,
-.order-modal.hidden {
-  display: none;
+  justify-content: center;
+  z-index: 999;
 }
 
-.modal-content, .form-popup-content, .order-modal-content {
-  background-color: #fff8f0;
+.modal-content,
+.form-popup-content {
+  background: #fff5eb;
   padding: 30px;
   border-radius: 12px;
-  width: 90%;
-  max-width: 500px;
   text-align: center;
+  max-width: 500px;
+  width: 90%;
   position: relative;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
 }
 
-.modal-close, .order-modal-close {
+.modal-image {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.modal-close {
   position: absolute;
   top: 10px;
   right: 20px;
-  font-size: 1.4rem;
-  font-weight: bold;
   cursor: pointer;
-  color: #8B4513;
+  font-size: 24px;
+  color: #8b4513;
 }
 
-/* ======================== */
-/* PASŪTĪJUMA MODĀLĀ FORMA */
-/* ======================== */
-.order-modal-content form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+.hidden {
+  display: none;
 }
 
-.order-modal-content input,
-.order-modal-content textarea,
-.order-modal-content select {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 1rem;
-  width: 100%;
-}
-
-#product-selection {
+/* Pasūtījuma forma */
+#order-modal .modal-content {
   text-align: left;
-  margin-top: 20px;
-}
-#product-selection label {
-  display: inline-block;
-  margin-right: 10px;
 }
 
-/* ======================== */
-/* ATSAUKSMES */
-/* ======================== */
-.testimonial-slider-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 40px 0;
-  max-width: 100%;
-  overflow: hidden;
-}
-.testimonial-slider {
-  display: flex;
-  gap: 24px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-}
-.testimonial {
-  background-color: white;
-  border-left: 5px solid #F5B7B1;
-  padding: 20px;
-  border-radius: 10px;
-  min-width: 250px;
+#product-selection > div {
+  margin-bottom: 10px;
 }
 
-/* ======================== */
-/* POPUP PĒC PASŪTĪJUMA */
-/* ======================== */
-.form-popup-content p {
-  font-size: 1.2rem;
-  margin-bottom: 20px;
+#order-form input[type="text"],
+#order-form input[type="tel"],
+#order-form input[type="date"],
+#order-form input[type="time"],
+#order-form input[type="number"],
+#order-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 16px;
 }
 
-.view-btn:hover {
-  background-color: #6a320f;
+#order-form button {
+  width: 100%;
+  padding: 12px;
+  background-color: #8b4513;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+footer {
+  padding: 40px 20px;
+  text-align: center;
 }
