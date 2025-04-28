@@ -63,6 +63,12 @@ button:hover {
   background-color: #c16e27;
 }
 
+#open-order-modal {
+  width: auto;
+  padding: 10px 20px;
+  margin-top: 20px;
+}
+
 /* ============================== */
 /* Produktu kartītes              */
 /* ============================== */
