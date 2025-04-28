@@ -1,5 +1,5 @@
 /* ============================== */
-/* Pamatstils un tipogrāfija     */
+/* Pamatstils un tipogrāfija       */
 /* ============================== */
 body {
   font-family: 'Segoe UI', sans-serif;
@@ -17,6 +17,7 @@ button {
   cursor: pointer;
   font-weight: bold;
   transition: 0.3s;
+  border: none;
 }
 
 button:hover {
@@ -53,7 +54,6 @@ button:hover {
 .filter-btn {
   padding: 8px 16px;
   margin: 0 4px;
-  border: none;
   background-color: #8b4513;
   color: white;
   border-radius: 20px;
@@ -63,12 +63,15 @@ button:hover {
   background-color: #c16e27;
 }
 
-/* ===== Pielāgots tikai "Veikt pasūtījumu" pogai ===== */
-#open-order-modal.view-btn {
-  width: auto;
-  display: inline-block;
-  padding: 10px 20px;
+/* Poga "Veikt pasūtījumu" */
+#open-order-modal {
   margin-top: 20px;
+  background-color: #8b4513;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 16px;
+  width: auto;
 }
 
 /* ============================== */
@@ -107,6 +110,9 @@ button:hover {
 .product-info {
   padding: 16px;
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .product-price {
@@ -114,17 +120,21 @@ button:hover {
   margin: 8px 0;
 }
 
+.product-info .view-btn {
+  margin-top: 16px;
+}
+
+/* View pogas dizains */
 .view-btn {
   background-color: #8b4513;
   color: white;
-  border: none;
   padding: 10px;
   width: 100%;
   border-radius: 6px;
 }
 
 /* ============================== */
-/* Atsauksmes                     */
+/* Atsauksmes (Slider)            */
 /* ============================== */
 #testimonials {
   padding: 40px 20px;
@@ -135,7 +145,7 @@ button:hover {
   position: relative;
   max-width: 960px;
   margin: auto;
-  overflow: hidden; /* Noslēpj skrolbāru */
+  overflow: hidden;
 }
 
 .testimonial-slider {
@@ -173,7 +183,6 @@ button:hover {
   transform: translateY(-50%);
   background: #8b4513;
   color: white;
-  border: none;
   padding: 10px;
   border-radius: 50%;
   font-size: 20px;
