@@ -63,8 +63,10 @@ button:hover {
   background-color: #c16e27;
 }
 
-#open-order-modal {
+/* ===== Pielāgots tikai "Veikt pasūtījumu" pogai ===== */
+#open-order-modal.view-btn {
   width: auto;
+  display: inline-block;
   padding: 10px 20px;
   margin-top: 20px;
 }
@@ -121,10 +123,9 @@ button:hover {
   border-radius: 6px;
 }
 
-/* ============================ */
-/*         Atsauksmes          */
-/* ============================ */
-
+/* ============================== */
+/* Atsauksmes                     */
+/* ============================== */
 #testimonials {
   padding: 40px 20px;
   text-align: center;
@@ -134,7 +135,7 @@ button:hover {
   position: relative;
   max-width: 960px;
   margin: auto;
-  overflow: hidden; /* <- svarīgi, lai nerādītu skrolbāru */
+  overflow: hidden; /* Noslēpj skrolbāru */
 }
 
 .testimonial-slider {
@@ -148,7 +149,7 @@ button:hover {
   border-radius: 12px;
   padding: 20px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  width: 280px;  /* mazāks platums */
+  width: 280px;
   flex: 0 0 auto;
   text-align: center;
 }
